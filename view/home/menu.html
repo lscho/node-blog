@@ -1,0 +1,50 @@
+            <div class="left-col">
+                <div class="overlay"></div>
+                <div class="intrude-less">
+                    <header id="header" class="inner">
+                        <div class="profilepic">
+                            <img src="<%=_web.url%>static/img/logos.png">
+                        </div>
+                        <hgroup>
+                        <h1 class="header-author"><a href="<%=_web.url%>"><%=_web.title%></a></h1>
+                        </hgroup>
+                        <p class="header-subtitle"><%=newmood.mood%></p>
+                        <div class="onoffswitch">
+                            <input name="onoffswitch"  id="myonoffswitch" class="onoffswitch-checkbox" checked="checked" type="checkbox">
+                            <label class="onoffswitch-label" for="myonoffswitch">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <div class="switch-area">
+                            <section class="first-part">
+                                <nav class="header-menu">
+                                    <ul>
+                                        <li>
+                                            <a class="current" href="<%=_web.url%>">首页</a>
+                                        </li>                                                             <li>
+                                            <a href="<%=_web.url%>mood">心情</a>
+                                        </li>
+                                         <li>
+                                            <a href="<%=_web.url%>archives">归档</a>
+                                        </li>
+                                        <li>
+                                            <a href="<%=_web.url%>about">关于</a>
+                                        </li>
+                                        <li>
+                                            <a href="<%=_web.url%>comment">留言</a>
+                                        </li>                                        
+                                    </ul>
+                                </nav>
+                            </section>
+                            <section class="second-part">
+                                <div class="widget tagcloud">
+                                     <%tag.forEach(function(data){%>
+                                    <a class="color1" style="font-size: 12px;" href="<%=_web.url%>tag/<%=data.id%>"><%=data.name%></a>
+                                    <%})%>
+                                </div>
+                            </section>
+                        </div>
+                    </header>
+                </div>
+            </div>

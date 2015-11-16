@@ -1,0 +1,14 @@
+{
+  "apps": [{
+    "name": "D:nodeeasyou",
+    "script": "www/production.js",
+    "cwd": "D:\node/easyou",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}
