@@ -308,7 +308,7 @@ $.extend($E, {
     
     //表情配置（1.gif, 2.gif, 3.gif ... 100.gif）
     'expressionConfig': {
-        'path':'/resource/editor/expressions/',
+        'path':'/static/editor/expressions/',
         'fileNames':[1,100],
         'ext':'.gif'
     }

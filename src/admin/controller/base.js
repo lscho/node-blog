@@ -6,14 +6,16 @@ export default class extends think.controller.base {
   }
   //前置操作
   async __before() {
-  	//获取配置
-  	await this.getConfig();
-  	//最新心情
-    let newmood =await this.model('moods').getNew();
-    this.assign('newmood',newmood);
-    //标签
-    let tag=await this.model('tags').getList();
-    this.assign('tag',tag);
+    //检测登录状态
+    let userInfo=await this.session('userInfo');
+    if(!think.isEmpty(userInfo)){     
+      this.assign('title','后台管理');
+      this.assign('userInfo',userInfo);
+      //获取配置
+      await this.getConfig();
+    }else{
+      return this.redirect("/login");
+    }
   } 
   //获取配置
   async getConfig(){

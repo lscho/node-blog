@@ -77,13 +77,13 @@ global.subStr = function(str, len, hasDot) {
 		return data;
 	}
 	//写入文件
-	global.writeFile=function(file,data,fn){
+	global.writeFile=async function(file,data){
 		var fs = think.require('fs'); //引入fs处理文件
 		fs.writeFile(file,data,function(err){
 			if(err){
-				fn(false);
+				return false;
 			}else{
-				fn(true);
+				return true;
 			}
 		});
 	}

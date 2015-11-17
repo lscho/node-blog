@@ -73,9 +73,15 @@ export default class extends Base {
 	}
 	//登录
 	async loginAction(){
-		if(this.isGet()){		
-			this.assign('title', "登录到后台");
-			this.display();
+		if(this.isGet()){	
+			//判断是否登录
+			let data=await this.session('userInfo');
+			if(!think.isEmpty(data)){
+				this.redirect("/admin");
+			}else{
+				this.assign('title', "登录到后台");
+				this.display();
+			}
 		}else{
 			let map = {
 				user: this.post('user'),
@@ -85,9 +91,9 @@ export default class extends Base {
 			if(data){
 				//设置session
 				await this.session('userInfo',data);				
-				//return this.redirect("/admin");
+				return this.redirect("/admin");
 			}else{
-				//return this.redirect("/login");
+				return this.redirect("/login");
 			}	
 		}
 	}
