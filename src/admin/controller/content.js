@@ -50,6 +50,7 @@ export default class extends Base {
             if(this.post('id')){    //编辑
                 var rs=await this.model('contents').where({id:this.post('id')}).update(data);
             }else{                  //新增
+                data.time=time();
                 var rs=await this.model('contents').add(data);
             }
             if(rs){
