@@ -47,6 +47,9 @@ export default class extends Base {
 			'ey_contents.id|ey_contents.url':this.get('id')		//注1
 		};
 		let data=await this.model('contents').getOne(map);
+		if(!think.isEmpty(data.url)){
+			data.id=data.url;
+		}
 		this.assign('title',data.title);
 		this.assign('data',data);
 		//阅读量+1
