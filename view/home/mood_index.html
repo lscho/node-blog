@@ -22,12 +22,12 @@
     <%})%>
         
         <ul class="pager padding  clearfix margin-big"> 
-                <%if(list.page>=1 && list.page<=list.total){%>
-                <%if(list.page>1){%>        
-        <li class="float-left"> <a class="pager-prev icon-angle-left" href="<%=_web.url%>mood/<%=list.page-1%>"></a> </li> 
+                <%if(list.currentPage>=1 && list.currentPage<=list.totalPages){%>
+                <%if(list.currentPage>1){%>        
+        <li class="float-left"> <a class="pager-prev icon-angle-left" href="<%=_web.url%>mood/<%=list.currentPage-1%>"></a> </li> 
                 <%}%>
-                <%if(list.page<list.total){%>        
-        <li class="float-right"> <a class="pager-next icon-angle-right" href="<%=_web.url%>mood/<%=list.page+1%>"></a> </li>
+                <%if(list.currentPage<list.totalPages){%>        
+        <li class="float-right"> <a class="pager-next icon-angle-right" href="<%=_web.url%>mood/<%=list.currentPage+1%>"></a> </li>
                 <%}%>
                 <%}%>        
         </ul>
