@@ -8,7 +8,6 @@ export default class extends Base {
 		this.assign('title', "首页");
 		let page = this.get('page') ? this.get('page') : 1;
 		let map = {};
-		map.status = 1;
 		if (this.post('keyword')) { //关键词
 			map = {
 				'ey_contents.title': ['like', '%' + this.post('keyword') + '%']
@@ -28,6 +27,7 @@ export default class extends Base {
 			this.assign('title', "分类");
 		}
 		map.ispage = 1;	
+		map.status = 1;
 		let data=await this.model('contents').getList(map,page,6);
         /*
         *注1：此处略坑，因为之前使用ID做文章标识，为了兼容之前的数据才这样写的
