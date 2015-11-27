@@ -1395,6 +1395,7 @@ function ready(){
 }
 $(function(){
 	ready();
+	$.getScript("http://tajs.qq.com/stats?sId=46466806");
 });
 $(document).pjax('a', '#container', {fragment: '#container', timeout: 5000});
 //pjax start
