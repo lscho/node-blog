@@ -85,40 +85,7 @@
 
    </form> 
 
-  </div>  
-
-  <div id="mydialog"> 
-    <div class="dialog fadein-top"> 
-    <form action="/admin/tag/add" method="post">
-      <div class="dialog-head"> 
-        <span class="close rotate-hover"> 
-        </span> 
-        <strong>添加标签</strong> 
-      </div> 
-      <div class="dialog-body">
-        <input type="hidden" class="input" name="id" id="tagId" value="0" />
-        <input type="text" class="input tags" name="tag" placeholder="请输入标签名称" />
-      </div> 
-      <div class="dialog-foot"> 
-        <button class="button dialog-close">取消</button> 
-        <button class="button bg-green" type="submit">确认</button>
-      </div>
-      </form>
-    </div>
-  </div>
-
-<script type="text/javascript">
-$(".dia").on('click',function(){
-  var e=$(this);
-  var id=e.data('id');
-  $("#tagId").val(id);
-  $.get('/admin/tag/get/id/'+id,function(data){
-    $showdialogs(e);
-    $(".tags").val(data.name);
-  });
-});
-</script>
-
+  </div> 
  </body>
 
 </html>

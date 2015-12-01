@@ -6,7 +6,8 @@ export default class extends think.model.base {
 	//获取访客记录
 	async getList(map,page,nums){
 		let data=await this.where(map)
-			.page(page, nums||10)
+			.page(page, nums||20)
+			.order('time desc')
 			.countSelect();
 		let ip=[];
         for(var k in data['data']){

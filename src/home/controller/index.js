@@ -100,4 +100,9 @@ export default class extends Base {
 			}	
 		}
 	}
+	//异常页
+	async errorAction(){
+		this.assign('title','未找到该信息');
+		this.display();
+	}
 }

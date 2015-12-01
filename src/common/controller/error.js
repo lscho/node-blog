@@ -29,7 +29,8 @@ export default class extends think.controller.base {
     let options = this.config('tpl');
     options = think.extend({}, options, {type: 'ejs', file_depr: '_'});
     //使用自定义错误页面
-    return this.display(file, options);    
+    //return this.display(file, options); 
+    this.redirect('/error');   
   }
   /**
    * Bad Request 
