@@ -16,6 +16,9 @@ export default class extends Base {
     //留言
     let comment=await this.model('comments').count();
     this.assign('comment',comment);
+    //访客
+    let count=await this.model('count').count();
+    this.assign('count',count);    
     //最新心情
     let newmood=await this.model('moods').getNew();
     this.assign('newMood',newmood);                   

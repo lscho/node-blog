@@ -41,7 +41,13 @@
             <div class="article"> 
 
             <div id="comments" class="ds-thread" data-thread-key="<%=data.id%>" data-title="<%=data.title%>" data-url="<%=_web.url%>page/<%=data.id%>.html"></div>           
-            <script type="text/javascript">
+          </div>
+          <%}%>
+
+  <%include footer.html%>
+  </div>
+               <%if(data.iscomment=="1"){%>
+              <script type="text/javascript">
               //异步加载多说js
               var duoshuoQuery = {short_name:"eyblog"};
               $.getScript("http://static.duoshuo.com/embed.js",function(){
@@ -61,10 +67,6 @@
                 }
               })
             </script>
-          </div>
-          <%}%>
-
-  <%include footer.html%>
-  </div>
+             <%}%>
 </div>
 </body></html>

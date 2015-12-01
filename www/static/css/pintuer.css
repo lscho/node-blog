@@ -2017,6 +2017,7 @@ a {
   position: relative;
   border-bottom: 1px solid #ddd;
   background: #fff;
+ 
 }
 .article img {
   max-width: 100%;
@@ -2084,14 +2085,6 @@ a {
 .article-entry p {
   margin-top: 10px;
 }
-.article-entry p code,
-.article-entry li code {
-  padding: 1px 3px;
-  margin: 0 3px;
-  background: #ddd;
-  border: 1px solid #ccc;
-  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
-}
 .article-entry blockquote {
   background: #ddd;
   border-left: 5px solid #ccc;
@@ -2151,7 +2144,6 @@ a {
   background: #f6f6f6;
   color: #657b83;
   font-size: 12px;
-  border: 1px solid #ccc;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 }
 .article-meta {
@@ -2457,11 +2449,6 @@ a {
 .article-entry pre,
 .article-entry code {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
-}
-.article-entry code {
-  background: #eee;
-  text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
 }
 .article-entry pre code {
   background: none;

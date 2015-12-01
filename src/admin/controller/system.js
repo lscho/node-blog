@@ -56,4 +56,22 @@ export default class extends Base {
             }
         }
     }
+    //访客记录
+    async countAction(){
+        if(this.isGet()){
+            this.assign("model", "system");
+            this.assign("action", "count");             
+            let start=time()-86400||this.get('start');
+            let end=time()||this.get('end');
+            this.assign('start',formatDate("y-m-d h:i:s",start));
+            this.assign('end',formatDate("y-m-d h:i:s",end));            
+            let map={
+                time:["between",start,end]
+            }
+            //列表
+            let data=await this.model('count').getList(map,this.get('p')||1);
+            this.assign('list',data);
+            this.display();
+        }
+    }
 }
