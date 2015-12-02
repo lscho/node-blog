@@ -82,73 +82,24 @@
 
       <div class="panel-head"> 
 
-       <strong> 系统信息 </strong> 
+       <strong> 最新留言 </strong> 
 
       </div> 
-
-      <table class="table"> 
-
-       <tbody>
-
-        <tr> 
-
-         <th colspan="2"> 服务器信息 </th> 
-
-         <th colspan="2"> 系统信息 </th> 
-
-        </tr> 
-
-        <tr> 
-
-         <td width="110" align="right"> 操作系统： </td> 
-
-         <td> ContOS 6.5 </td> 
-
-         <td width="90" align="right"> 系统开发： </td> 
-
-         <td> <a href="http://www.eyblog.com" target="_blank"> 大萌 </a> </td> 
-
-        </tr> 
-
-        <tr> 
-
-         <td align="right"> Web服务器： </td> 
-
-         <td> Nginx </td> 
-
-         <td align="right"> 主页： </td> 
-
-         <td> <a href="http://www.eyblog.com" target="_blank"> http://www.eyblog.com </a> </td> 
-
-        </tr> 
-
-        <tr> 
-
-         <td align="right"> 程序语言： </td> 
-
-         <td> node.js </td> 
-
-         <td align="right"> 演示： </td> 
-
-         <td> <a href="http://www.eyblog.com" target="_blank"> http://www.eyblog.com </a> </td> 
-
-        </tr> 
-
-        <tr> 
-
-         <td align="right"> 数据库： </td> 
-
-         <td> MySQL </td> 
-
-         <td align="right"> 群交流： </td> 
-
-         <td> <a href="http://shang.qq.com/wpa/qunwpa?idkey=a4f584d6055dc184ba5a867df460469db60983ccdee1a434f6ddcad7c9bc7ba3" target="_blank"> 78078316 </a>(点击加入) </td> 
-
-        </tr> 
-
-       </tbody>
-
-      </table> 
+      <div class="panel-body">
+          <ul class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70"></ul>
+          <!--多说js加载开始，一个页面只需要加载一次 -->
+          <script type="text/javascript">
+          var duoshuoQuery = {short_name:"<%=_web['duoshuo']%>"};
+          (function() {
+              var ds = document.createElement('script');
+              ds.type = 'text/javascript';ds.async = true;
+              ds.src = 'http://static.duoshuo.com/embed.js';
+              ds.charset = 'UTF-8';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+          })();
+          </script>
+          <!--多说js加载结束，一个页面只需要加载一次 -->
+      </div>
 
      </div> 
 

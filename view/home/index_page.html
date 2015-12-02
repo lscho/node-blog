@@ -49,7 +49,7 @@
                <%if(data.iscomment=="1"){%>
               <script type="text/javascript">
               //异步加载多说js
-              var duoshuoQuery = {short_name:"eyblog"};
+              var duoshuoQuery = {short_name:"<%=_web['duoshuo']%>"};
               $.getScript("http://static.duoshuo.com/embed.js",function(){
                 //代码高亮
                 $('pre code').each(function(i, block) {

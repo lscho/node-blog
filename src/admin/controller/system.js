@@ -16,6 +16,7 @@ export default class extends Base {
                     keyword: this.post("keyword"),
                     description: this.post("description"),
                     url: this.post("url"),
+                    duoshuo:this.post("duoshuo"),
                     copyright: trimStr(this.post('copyright')),
                     linkurl: trimStr(this.post('linkurl'))
                 }

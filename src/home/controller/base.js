@@ -45,7 +45,8 @@ export default class extends think.controller.base {
         time: time(),
         url: http.url,
         userAgent: this.userAgent(),
-        Referer: this.referrer()
+        Referer: this.referrer(),
+        num:1
       }
       this.model('count').add(data);
     }
