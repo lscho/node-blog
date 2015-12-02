@@ -25,8 +25,8 @@
       <div class="padding border-bottom margin"> 
       <span><%=start%> 到 <%=end%></span>
       共
-      <span class="tag bg-main"><%=list.count%> PV</span>  
-      <span class="tag bg-main"><%=list.ip%> IP</span> 
+      <span class="tag bg-main"><%=list.count%> IP</span>  
+      <span class="tag bg-main"><%=list.pv%> PV</span> 
      </div>     
 
      <table class="table table-hover"> 
@@ -36,6 +36,8 @@
        <tr> 
 
         <th width="50"> IP </th> 
+
+        <th width="50"> 次数 </th>
 
         <th width="120"> 时间 </th> 
 
@@ -53,6 +55,8 @@
         <span style="cursor:pointer;" class="text-green tips"  data-place="top" data-toggle="hover" title="<%=v.userAgent%>"><%=v.ip%> </span>
         
         </td> 
+
+        <td> <%=v.num%> </td>
 
         <td> <%=v.time%> </td> 
 
