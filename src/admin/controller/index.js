@@ -4,9 +4,7 @@ import Base from './base.js';
 
 export default class extends Base {
   //首页
-  async indexAction(){
-    this.assign("model","index");
-    this.assign("action","index");    
+  async indexAction(){   
     //文章
     let content=await this.model('contents').count();
     this.assign('content',content);

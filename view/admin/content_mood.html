@@ -1,40 +1,30 @@
 <!DOCTYPE html>
-
 <html lang="zh-cn">
-
 <% include head.html %>
-
- <body>  
-
-<% include menu.html %>
-
-  <div class="admin"> 
-
-
-
+	<body>
+		<!--顶部-->
+		<% include top.html %>
+		<!--内容-->
+		<div class="container">
+			<ul class="bread">
+        <li><a href="/admin" class="icon-home">首页</a> </li>
+        <li><a href="/admin/content">内容</a></li>
+			</ul>
+			<div class="admin">
+				<div class="line-big">
+					<div class="xm12">
    <form method="post" action="/admin/content/delete"> 
-
     <div class="panel admin-panel"> 
-
      <div class="panel-head"> 
-
       <strong> 心情管理 </strong> 
-
      </div> 
-
      <div class="padding border-bottom"> 
-
       <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选" /> 
-
       <input type="button" class="button button-small border-green dialogs" value="添加心情" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="30%" data-id="0"/>
      </div>      
-
      <table class="table table-hover"> 
-
       <tbody>
-
        <tr> 
-
         <th width="60"> 选择 </th> 
 
         <th width="120"> id </th> 
@@ -71,25 +61,24 @@
 
      </table>
   <div class="panel-foot text-center"> 
-  
    <ul class="pagination  border-main">
    <% 
    if(list.totalPages>1){
    for(var i=1;i<list.totalPages+1;i++){%>
-   <li <%if(list.currentPage==i){%>class="active" style="background: #0AE;"<%}%>>
+   <li <%if(list.currentPage==i){%>class="active"<%}%>>
         <a href="/admin/content/mood/p/<%=i%>"><%=i%></a>
     </li>
    <%}}%>
    </ul>
-
-
  </div>     
-
     </div> 
-
-   </form> 
-
-  </div>  
+   </form>		
+   </div>			
+					</div>
+				</div>
+			</div>
+			<!--底部-->
+			<% include foot.html %>
 
   <div id="mydialog"> 
     <div class="dialog fadein-top"> 
@@ -121,6 +110,7 @@ $(".dia").on('click',function(){
     $(".mood").val(data.mood);
   });
 });
-</script>
- </body>
+</script>      
+	</body>
+
 </html>

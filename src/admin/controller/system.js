@@ -6,8 +6,6 @@ export default class extends Base {
     //首页
     async indexAction() {
             if (this.isGet()) {
-                this.assign("model", "system");
-                this.assign("action", "index");
                 this.display();
             } else {
                 let data = readFile(think.ROOT_PATH + "/src/common/config/config.json");
@@ -30,9 +28,7 @@ export default class extends Base {
         }
         //密码修改
     async changeAction() {
-        if(this.isGet()){
-            this.assign("model", "system");
-            this.assign("action", "change");            
+        if(this.isGet()){            
             this.display();          
         }else{
             let userInfo=await this.session('userInfo');
@@ -59,9 +55,7 @@ export default class extends Base {
     }
     //访客记录
     async countAction(){
-        if(this.isGet()){
-            this.assign("model", "system");
-            this.assign("action", "count");             
+        if(this.isGet()){           
             let start=time()-86400||this.get('start');
             let end=time()||this.get('end');
             this.assign('start',formatDate("y-m-d h:i:s",start));

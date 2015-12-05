@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-
 <html lang="zh-cn">
-
 <% include head.html %>
-
- <body>  
-
-<% include menu.html %>
-
-  <div class="admin"> 
-
-
-
-   <form method="post" action="/admin/content/delete"> 
+	<body>
+		<!--顶部-->
+		<% include top.html %>
+		<!--内容-->
+		<div class="container">
+			<ul class="bread">
+        <li><a href="/admin" class="icon-home">首页</a> </li>
+        <li><a href="/admin/content">内容</a></li>
+			</ul>
+			<div class="admin">
+				<div class="line-big">
+					<div class="xm12">
+ <form method="post" action="/admin/content/delete"> 
 
     <div class="panel admin-panel"> 
 
@@ -65,9 +66,13 @@
 
     </div> 
 
-   </form> 
-
-  </div>  
+   </form> 		
+   </div>			
+					</div>
+				</div>
+			</div>
+			<!--底部-->
+			<% include foot.html %>
 
   <div id="mydialog"> 
     <div class="dialog fadein-top"> 
@@ -99,6 +104,7 @@ $(".dia").on('click',function(){
     $(".cate").val(data.name);
   });
 });
-</script>
- </body>
+</script>     
+	</body>
+
 </html>
