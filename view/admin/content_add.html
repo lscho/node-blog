@@ -13,6 +13,7 @@
 			<div class="admin">
 				<div class="line-big">
 					<form method="post" class="form-x" action="/admin/content/add.html">
+					<input type="hidden" name="id" value="<%=content.id%>" />
 					<div class="xm9">
 						<div class="panel  admin-panel">
 							<div class="panel-head"><strong> 撰写文章 </strong></div>
@@ -28,7 +29,7 @@
 						</div>
 						<div class="xm3">
 							<label class="label"> url静态化</label> 
-							<input type="text" name="url" class="input" placeholder="不能为数字" />
+							<input type="text" name="url" class="input"  value="<%=content.url%>" placeholder="不能为数字" />
 							<label class="label"> 所属分类</label> 
 							<select class="input"  name="category"> 
 		                     <%category.forEach(function(data){%>
@@ -72,7 +73,9 @@
 	                            <input name="ispage" value="2" type="radio"  <%if(content.ispage==2){%>checked="checked"<%}%>>
 	                            <span class="icon icon-times"></span> 页面</label>
 	                        </div>
-
+							<div class="margin-large-top">
+								<button class="button border-main">立即提交</button>
+							</div>
 						</div>
 					</form>		
 					</div>

@@ -67,6 +67,18 @@
       </tbody>
 
      </table>
+     <div class="panel-foot text-center"> 
+  
+   <ul class="pagination  border-main">
+   <% 
+   if(list.totalPages>1){
+   for(var i=1;i<list.totalPages+1;i++){%>
+   <li <%if(list.currentPage==i){%>class="active"<%}%>>
+        <a href="/admin/system/count/p/<%=i%>"><%=i%></a>
+    </li>
+   <%}}%>
+   </ul>
+ </div>  
             </div> 
             </div> 
           </div>			

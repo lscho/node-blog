@@ -12,12 +12,18 @@ global.formatDate = function(formatStr, fdate) {
 		} else {
 			fTime = new Date();
 		}
+		var month=(fTime.getMonth()>8)?(fTime.getMonth() + 1):"0"+(fTime.getMonth() + 1);
+		var date=(fTime.getDate()>9)?fTime.getDate():"0"+fTime.getDate();
+		var hours=(fTime.getHours()>9)?fTime.getHours():"0"+fTime.getHours();
+		var minutes=(fTime.getMinutes()>9)?fTime.getMinutes():"0"+fTime.getMinutes();
+		var seconds=(fTime.getSeconds()>9)?fTime.getSeconds():"0"+fTime.getSeconds();
 		var formatArr = [
-			fTime.getFullYear().toString(), (fTime.getMonth() + 1).toString(),
-			fTime.getDate().toString(),
-			fTime.getHours().toString(),
-			fTime.getMinutes().toString(),
-			fTime.getSeconds().toString()
+			fTime.getFullYear().toString(), 
+			month.toString(),
+			date.toString(),
+			hours.toString(),
+			minutes.toString(),
+			seconds.toString()
 		]
 		for (var i = 0; i < formatArr.length; i++) {
 			formatStr = formatStr.replace(fStr.charAt(i), formatArr[i]);
