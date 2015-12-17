@@ -18,9 +18,7 @@ export default class extends think.model.base {
 	        *注1：纯粹是为了模版显示
 	        */        	
             data['data'][k]['m'] = formatDate("m", data['data'][k]['time']);
-            data['data'][k]['m']=(data['data'][k]['m']>9)?data['data'][k]['m']:"0"+data['data'][k]['m'];
             data['data'][k]['d'] = formatDate("d", data['data'][k]['time']);
-            data['data'][k]['d']=(data['data'][k]['d']>9)?data['data'][k]['d']:"0"+data['data'][k]['d'];
             data['data'][k]['time'] = formatDate("y-m-d h:i:s", data['data'][k]['time']);
         }             		
 		return data;
