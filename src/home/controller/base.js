@@ -29,26 +29,39 @@ export default class extends think.controller.base {
   async count() {
     let date = Date();
     let http = this.http;
-    //判断24小时内有没有访问
-    let map= {
-      ip: this.ip(),
-      time: [">", time() - 86400]
-    }
-    let rs = await this.model('count').where(map).count();
-    if (rs) {
-      //增加来访次数
-      this.model('count').where(map).increment("num", 1);
-    } else {
-      //新增浏览记录
-      let data = {
-        ip: this.ip(),
-        time: time(),
-        url: http.url,
-        userAgent: this.userAgent(),
-        Referer: this.referrer(),
-        num:1
+    let userAgent = this.userAgent();
+    //不记录蜘蛛
+    let is_spider = false;
+    let spider = ['Googlebot', 'Baiduspider', 'Yahoo! Slurp', 'msnbot', 'Sosospider', 'YodaoBot', 'Sogou web spider',
+      'fast-webcrawler', 'Gaisbot', 'ia_archiver', 'altavista', 'lycos_spider', 'Inktomi slurp'
+    ];
+    for (let i in spider) {
+      if (userAgent.indexOf(spider[i]) > 0) {
+        is_spider = true;
       }
-      this.model('count').add(data);
+    }
+    if (!is_spider) {
+      //判断24小时内有没有访问
+      let map = {
+        ip: this.ip(),
+        time: [">", time() - 86400]
+      }
+      let rs = await this.model('count').where(map).count();
+      if (rs) {
+        //增加来访次数
+        this.model('count').where(map).increment("num", 1);
+      } else {
+        //新增浏览记录
+        let data = {
+          ip: this.ip(),
+          time: time(),
+          url: http.url,
+          userAgent: userAgent,
+          Referer: this.referrer(),
+          num: 1
+        }
+        this.model('count').add(data);
+      }
     }
   }
 }
