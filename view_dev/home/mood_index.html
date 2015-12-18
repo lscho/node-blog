@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="">
+    <%include header.html%>
+    <body>
+        <div id="container">
+            <%include menu.html%>
+            <div class="mid-col">
+            <%include m_menu.html%>
+
+            <%list.data.forEach(function(data){%>
+    <article id="post-douban-index-for-chrome" class="article article-type-post fadein" itemscope="" itemprop="blogPost">
+    <div class="media media-x"> 
+        <a class="float-left" href="#"> 
+        <img src="<%=_web.url%>static/img/logos.png" class="radius" style="width: 80px;height: 80px;"> </a>
+        <div class="media-body"> 
+        <strong class="text-gray padding-big-bottom"><%=data.time%></strong> 
+        <h5 class="margin-bottom"><%=data.mood%> </h5>
+        </div>
+    </div>
+    </article>
+
+    <%})%>
+        
+        <ul class="pager padding  clearfix margin-big"> 
+                <%if(list.currentPage>=1 && list.currentPage<=list.totalPages){%>
+                <%if(list.currentPage>1){%>        
+        <li class="float-left"> <a class="pager-prev icon-angle-left" href="<%=_web.url%>mood/<%=list.currentPage-1%>"></a> </li> 
+                <%}%>
+                <%if(list.currentPage<list.totalPages){%>        
+        <li class="float-right"> <a class="pager-next icon-angle-right" href="<%=_web.url%>mood/<%=list.currentPage+1%>"></a> </li>
+                <%}%>
+                <%}%>        
+        </ul>
+
+  <%include footer.html%>
+</div>
+    </div>
+</body></html>

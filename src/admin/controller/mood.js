@@ -33,4 +33,13 @@ export default class extends Base {
         let data=await this.model('moods').where({id:this.get('id')}).find();
         this.json(data);
     }
+    //删除
+    async deleteAction(){
+        let data=await this.model('moods').where({id:this.get('id')}).delete();
+        if(data){
+            this.redirect("/admin/content/mood?err=1");
+        }else{
+            this.redirect("/admin/content/mood?err=2");
+        }
+    }    
 }
