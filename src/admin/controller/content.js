@@ -5,8 +5,6 @@ import Base from './base.js';
 export default class extends Base {
     //首页
     async indexAction() {
-            this.assign("model", "content");
-            this.assign("action", "index");
             let page = this.get('p') ? this.get('p') : 1;
             let data = await this.model('contents').getList({}, page, 10);
             this.assign('list', data);
@@ -14,8 +12,6 @@ export default class extends Base {
         }
         //文章添加
     async addAction() {
-        this.assign("model", "content");
-        this.assign("action", "add");
         if (this.isGet()) {
             //获取标签
             let tag = this.model('tags').getList();
@@ -85,8 +81,6 @@ export default class extends Base {
     //分类管理
     async cateAction(){
         if(this.isGet()){
-            this.assign("model","content");
-            this.assign("action","cate");
             let category =await this.model('categorys').getList();
             this.assign('category', category);
             this.display();                        
@@ -95,8 +89,6 @@ export default class extends Base {
     //标签管理
     async tagAction(){
         if(this.isGet()){
-            this.assign("model","content");
-            this.assign("action","tag");
             let tag =await this.model('tags').getList();
             this.assign('tag', tag);
             this.display();                        
@@ -105,8 +97,6 @@ export default class extends Base {
     //心情管理
     async moodAction(){
         if(this.isGet()){
-            this.assign("model","content");
-            this.assign("action","mood");
             let page=this.get('p')||1;
             let mood =await this.model('moods').getList({},page);
             this.assign('list', mood);

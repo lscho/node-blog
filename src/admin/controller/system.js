@@ -6,8 +6,6 @@ export default class extends Base {
     //首页
     async indexAction() {
             if (this.isGet()) {
-                this.assign("model", "system");
-                this.assign("action", "index");
                 this.display();
             } else {
                 let data = readFile(think.ROOT_PATH + "/src/common/config/config.json");
@@ -16,6 +14,7 @@ export default class extends Base {
                     keyword: this.post("keyword"),
                     description: this.post("description"),
                     url: this.post("url"),
+                    duoshuo:this.post("duoshuo"),
                     copyright: trimStr(this.post('copyright')),
                     linkurl: trimStr(this.post('linkurl'))
                 }
@@ -29,9 +28,7 @@ export default class extends Base {
         }
         //密码修改
     async changeAction() {
-        if(this.isGet()){
-            this.assign("model", "system");
-            this.assign("action", "change");            
+        if(this.isGet()){            
             this.display();          
         }else{
             let userInfo=await this.session('userInfo');
@@ -54,6 +51,22 @@ export default class extends Base {
                 //密码不正确
                 return this.redirect("/admin/system/change?err=3");
             }
+        }
+    }
+    //访客记录
+    async countAction(){
+        if(this.isGet()){           
+            let start=time()-86400||this.get('start');
+            let end=time()||this.get('end');
+            this.assign('start',formatDate("y-m-d h:i:s",start));
+            this.assign('end',formatDate("y-m-d h:i:s",end));            
+            let map={
+                time:["between",start,end]
+            }
+            //列表
+            let data=await this.model('count').getList(map,this.get('p')||1);
+            this.assign('list',data);
+            this.display();
         }
     }
 }

@@ -1,0 +1,379 @@
+body {
+	background-color: #FFFFFF;
+	background: #F6F6F3 none repeat scroll 0% 0%;
+}
+.panel {
+	background: #fff;
+}
+form .form-group:last-child {
+	padding-bottom: 0;
+}
+.passcode {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 32px;
+	margin: 1px;
+	border-left: solid 1px #ddd;
+	text-align: center;
+	line-height: 32px;
+	border-radius: 0 4px 4px 0;
+}
+.logo {
+	border-bottom: solid 1px #b5cfd9;
+	padding: 23px 10px;
+}
+.admin {
+	width: 100%;
+	padding: 10px;
+	background: #F6F6F3;
+	right: 0;
+	bottom: 0;
+	top: 87px;
+	overflow: auto;
+}
+.alert {
+	margin-bottom: 20px;
+}
+.admin-panel td {
+	line-height: 24px;
+}
+.admin-panel td .button {
+	line-height: 16px;
+}
+/*分页选中*/
+
+.admin-panel .pagination .active {
+	background: #2c7;
+}
+.admin-panel .table th {
+	border-bottom: 2px solid #A5A5A5;
+	vertical-align: bottom;
+	padding: 8px;
+	text-align: left;
+}
+/*表格移入移出背景*/
+
+.admin-panel .table-hover > tbody > tr:hover > td,
+.admin-panel .table-hover > tbody > tr:hover > th {
+	background-color: #F3F3F3;
+}
+/*--------自定义链接颜色(可选)--------*/
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+/*链接-颜色*/
+
+a:focus,
+a:hover {
+	color: #292D33;
+}
+/*链接-悬浮颜色*/
+/*--------自定义文本颜色--------*/
+
+.text-main,
+a.text-main:link,
+a.text-main:visited,
+.button.border-main,
+blockquote.border-main strong,
+.pager.border-main a,
+.pager-prev.border-main,
+.pager-next.border-main,
+.nav a:hover,
+.nav-menu.nav-pills .active ul a:hover,
+.bg-inverse .nav-menu ul a:hover,
+.bg-inverse .nav.nav-menu.nav-tabs ul a:hover,
+.bg-inverse .nav.nav-menu.nav-tabs .active ul a:hover,
+.bg-inverse .nav.nav-menu.nav-pills ul a:hover,
+.bg-inverse .nav.nav-menu.nav-pills .active ul a:hover {
+	color: #292D33;
+}
+/*文本-主色*/
+
+.text-sub,
+a.text-sub:link,
+a.text-sub:visited,
+.button.border-sub,
+blockquote.border-sub strong,
+.pager.border-sub a,
+.pager-prev.border-sub,
+.pager-next.border-sub {
+	color: #292D33;
+}
+/*文本-辅色*/
+
+.text-back,
+a.text-back:link,
+a.text-back:visited,
+.button.border-back,
+blockquote.border-back,
+.pager.border-back a,
+.pager-prev.border-back,
+.pager-next.border-back {
+	color: #b5cfd9;
+}
+/*文本-背景色*/
+
+.text-mix,
+a.text-mix:link,
+a.text-mix:visited,
+.button.border-mix,
+blockquote.border-mix,
+.pager.border-mix a,
+.pager-prev.border-mix,
+.pager-next.border-mix {
+	color: #5cd;
+}
+/*文本-融合色*/
+
+.text-dot,
+a.text-dot:link,
+a.text-dot:visited,
+.button.border-dot,
+blockquote.border-dot strong,
+.pager.border-dot a,
+.pager-prev.border-dot,
+.pager-next.border-dot {
+	color: #f60;
+}
+/*文本-点缀色*/
+/*--------自定义背景色--------*/
+
+.bg-main,
+.border-main .button.active,
+.pointer.border-main .active,
+.nav-pills.border-main .active a,
+.nav-main.border-main .nav-head,
+.pagination.border-main .active {
+	background-color: #292D33;
+}
+/*背景-主色*/
+
+.bg-sub,
+.border-sub .button.active,
+.pointer.border-sub .active,
+.nav-pills.border-sub .active a,
+.nav-main.border-sub .nav-head,
+.pagination.border-sub .active {
+	background-color: #292D33;
+}
+/*背景-辅色*/
+
+.bg-back,
+.border-back .button.active,
+.pointer.border-back .active,
+.nav-pills.border-back .active a,
+.nav-main.border-back .nav-head,
+.pagination.border-back .active {
+	background-color: #f2f9fd;
+}
+/*背景-背景色*/
+
+.bg-mix,
+.border-mix .button.active,
+.pointer.border-mix .active,
+.nav-pills.border-mix .active a,
+.pagination.border-mix .active {
+	background-color: #292D33;
+}
+/*背景-融合色*/
+
+.bg-dot,
+.border-dot .button.active,
+.pointer.border-dot .active,
+.nav-pills.border-dot .active a,
+.nav-main.border-dot .nav-head,
+.pagination.border-dot .active {
+	background-color: #f60;
+}
+/*背景-点缀色*/
+/*--------自定义边框色--------*/
+
+.border-main,
+.border-main .button,
+.border-main .tab-nav li a,
+.border-main .tab-body,
+.button.bg-main,
+.selected.border-main,
+.pointer.border-main li,
+.nav.border-main .active a,
+.nav.nav-tabs.border-main,
+.nav-main.border-main a,
+.nav-main.border-main .nav-head,
+.pagination.border-main li,
+.pager.border-main a {
+	border-color: #292D33;
+}
+.input:focus{
+	border-color: #8F8F8F;
+}
+/*边框-主色*/
+
+.border-sub,
+.border-sub .button,
+.border-sub .tab-nav li a,
+.border-sub .tab-body,
+.button.bg-sub,
+.selected.border-sub,
+.pointer.border-sub li,
+.nav.border-sub .active a,
+.nav.nav-tabs.border-sub,
+.nav-main.border-sub a,
+.nav-main.border-sub .nav-head,
+.pagination.border-sub li,
+.pager.border-sub a {
+	border-color: #DDD;
+}
+/*边框-辅色*/
+
+.border-back,
+.border-back .button,
+.border-back .tab-nav li a,
+.border-back .tab-body,
+.button.bg-back,
+.selected.border-back,
+.pointer.border-back li,
+.nav.border-back .active a,
+.nav.nav-tabs.border-back,
+.nav-main.border-back a,
+.nav-main.border-back .nav-head,
+.pagination.border-back li,
+.pager.border-back a {
+	border-color: #DDD;
+}
+/*边框-背景色*/
+
+.border-mix,
+.border-mix .button,
+.border-mix .tab-nav li a,
+.border-mix .tab-body,
+.button.bg-mix,
+.selected.border-mix,
+.pointer.border-mix li,
+.nav.border-mix .active a,
+.nav.nav-tabs.border-mix,
+.nav-main.border-mix a,
+.nav-main.border-mix .nav-head,
+.pagination.border-mix li,
+.pager.border-mix a {
+	border-color: #0a8;
+}
+/*边框-融合色*/
+
+.border-dot,
+.border-dot .button,
+.border-dot .tab-nav li a,
+.border-dot .tab-body,
+.button.bg-dot,
+.selected.border-dot,
+.pointer.border-dot li,
+.nav.border-dot .active a,
+.nav.nav-tabs.border-dot,
+.nav-main.border-dot a,
+.nav-main.border-dot .nav-head,
+.pagination.border-dot li,
+.pager.border-dot a {
+	border-color: #f60;
+}
+/*边框-点缀色*/
+/*--------自定义按钮悬浮文本、边框及背景色--------*/
+
+.button.border-main:hover,
+.button.border-main:focus,
+.button.bg-main:hover,
+.button.bg-main:focus {
+	color: #fff;
+	border-color: #292D33;
+	background-color: #292D33;
+}
+/*主色-文本-边框-背景*/
+
+.button.border-sub:hover,
+.button.border-sub:focus,
+.button.bg-sub:hover,
+.button.bg-sub:focus {
+	color: #fff;
+	border-color: #292D33;
+	background-color: #b5cfd9;
+}
+/*配色-文本-边框-背景*/
+
+.button.border-back:hover,
+.button.border-back:focus,
+.button.bg-back:hover,
+.button.bg-back:focus {
+	color: #333;
+	border-color: #def;
+	background-color: #def;
+}
+/*背景色-文本-边框-背景*/
+
+.button.border-mix:hover,
+.button.border-mix:focus,
+.button.bg-mix:hover,
+.button.bg-mix:focus {
+	color: #333;
+	border-color: #3bc;
+	background-color: #3bc;
+}
+/*融合-文本色-边框-背景*/
+
+.button.border-dot:hover,
+.button.border-dot:focus,
+.button.bg-dot:hover,
+.button.bg-dot:focus {
+	color: #fff;
+	border-color: #f00;
+	background-color: #f00;
+}
+/*点缀色-文本-边框-背景*/
+
+.mobile-down {
+	-webkit-animation: fadeOutDown 2s .3s infinite ease both;
+	-moz-animation: fadeOutDown 2s .3s infinite ease both;
+}
+@-webkit-keyframes fadeOutDown {
+	0% {
+		opacity: 1;
+		-webkit-transform: translateY(0)
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(20px)
+	}
+}
+@-moz-keyframes fadeOutDown {
+	0% {
+		opacity: 1;
+		-moz-transform: translateY(0)
+	}
+	100% {
+		opacity: 0;
+		-moz-transform: translateY(20px)
+	}
+}
+/*移动端显示时，下拉加载数据动画*/
+table.tablesorter thead tr .header {
+	background-image: url(../images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../images/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../images/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown,
+table.tablesorter thead tr .headerSortUp {
+	background-color: #0ae;
+}
+table.tablesorter tbody{
+	font-size: 8pt;
+}
+.container{
+	margin-bottom: 60px;
+}
