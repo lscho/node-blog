@@ -46,11 +46,19 @@
 	                  		<div class="label"><label>文章状态</label></div>
 	                        <div class="button-group button-group-small radio">
 	                            <label class="button <%if(content.status==1){%>active<%}%>">
-	                            <input name="status" value="1" checked="<%if(content.status==1){%>checked<%}%>" type="radio" />
+	                            <%if(content.status==1){%>
+	                            <input name="status" value="1" checked type="radio" />
+	                            <%}else{%>
+								<input name="status" value="1"  type="radio" />
+	                            <%}%>
 	                            <span class="icon icon-check"></span> 
 	                              开启</label>
 	                            <label class="button <%if(content.status==0){%>active<%}%>">
-	                            <input name="status" value="0" checked="<%if(content.status==0){%>checked<%}%>" type="radio" />
+	                            <%if(content.status==0){%>
+	                            <input name="status" value="0" checked type="radio" />
+	                            <%}else{%>
+								<input name="status" value="0" type="radio" />
+	                            <%}%>
 	                            <span class="icon icon-times"></span> 
 	                            关闭</label>
 	                        </div>
@@ -58,20 +66,36 @@
 	                  		<div class="label"><label>允许评论</label></div>
 	                        <div class="button-group button-group-small radio">
 	                            <label class="button <%if(content.iscomment==1){%>active<%}%>">
-	                            <input name="iscomment" value="1" checked="<%if(content.iscomment==1){%>checked<%}%>" type="radio" />
+	                            <%if(content.iscomment==1){%>
+	                            <input name="iscomment" value="1" checked type="radio" />
+	                            <%}else{%>
+								<input name="iscomment" value="1" type="radio" />
+	                            <%}%>
 	                            <span class="icon icon-check"></span> 开启</label>
 	                            <label class="button <%if(content.iscomment==0){%>active<%}%>">
-	                            <input name="iscomment" value="0" checked="<%if(content.iscomment==0){%>checked<%}%>" type="radio"  />
+	                            <%if(content.iscomment==0){%>
+	                            <input name="iscomment" value="0" checked type="radio" />
+	                            <%}else{%>
+								<input name="iscomment" value="0" type="radio" />
+	                            <%}%>
 	                            <span class="icon icon-times"></span> 关闭</label>
 	                        </div>                      
 
 	                  		<div class="label"><label>文章类型</label></div>
 	                        <div class="button-group button-group-small radio">
 	                            <label class="button <%if(content.ispage==1){%>active<%}%>">
-	                            <input name="ispage" value="1" checked="<%if(content.ispage==1){%>checked<%}%>" type="radio" />
+	                            <%if(content.ispage==1){%>
+	                            <input name="ispage" value="1" checked type="radio" />
+	                            <%}else{%>
+								<input name="ispage" value="1" type="radio" />
+	                            <%}%>
 	                            <span class="icon icon-check"></span> 文章</label>
 	                            <label class="button <%if(content.ispage==2){%>active<%}%>">
-	                            <input name="ispage" value="2" checked="<%if(content.ispage==2){%>checked<%}%>" type="radio"  />
+	                            <%if(content.ispage==0){%>
+	                            <input name="ispage" value="0" checked type="radio" />
+	                            <%}else{%>
+								<input name="ispage" value="0" type="radio" />
+	                            <%}%>
 	                            <span class="icon icon-times"></span> 页面</label>
 	                        </div>
 							<div class="margin-large-top">
