@@ -1,17 +1,15 @@
 
- [easyou](http://www.eyblog.com)
+ [演示地址](http://www.eyblog.com)
 
 ## 获取 
 
 ```
-git clone git@github.com:eyblog/easyou-v2.git
+git clone https://github.com/eyblog/easyou-v2.git
 ```
 
-## 配置 
+## 配置  
 
-```
-[./src/common/config/db.js](https://github.com/eyblog/easyou-v2/blob/master/src/common/config/db.js)
-```
+数据库：[./src/common/config/db.js](https://github.com/eyblog/easyou-v2/blob/master/src/common/config/db.js)
 
 ## 启动 
 
@@ -22,7 +20,7 @@ npm start
 
 ## 部署 
 
-配置[./pm2.json](https://github.com/eyblog/easyou-v2/blob/master/pm2.json) 
+配置：[./pm2.json](https://github.com/eyblog/easyou-v2/blob/master/pm2.json) 
 
 
 ```
