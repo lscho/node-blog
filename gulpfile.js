@@ -18,9 +18,9 @@ gulp.task('Htmlmin', function () {
         minifyJS: true,//压缩页面JS
         minifyCSS: true//压缩页面CSS
     };
-    gulp.src('view_dev/*/*.html')
+    gulp.src('view/development/*/*.html')
         .pipe(htmlmin(options))
-        .pipe(gulp.dest('view'));
+        .pipe(gulp.dest('view/production'));
 });
 //js压缩
 gulp.task('script', function() {
