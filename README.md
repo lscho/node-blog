@@ -1,22 +1,40 @@
 
- [easyou](http://www.eyblog.com) -v2
+ [easyou](http://www.eyblog.com)
 
-## install dependencies
-
-```
-npm install
-```
-
-## start server
+## 获取 
 
 ```
+git clone git@github.com:eyblog/easyou-v2.git
+```
+
+## 配置 
+
+```
+[./src/common/config/db.js](https://github.com/eyblog/easyou-v2/blob/master/src/common/config/db.js)
+```
+
+## 启动 
+
+```
+npm install 
 npm start
 ```
 
-## deploy with pm2
+## 部署 
 
-use pm2 to deploy app on production envrioment.
+配置[./pm2.json](https://github.com/eyblog/easyou-v2/blob/master/pm2.json) 
+
 
 ```
-pm2 startOrGracefulReload pm2.json
+gulp 
+
+pm2 startOrGracefulReload pm2.json 
+
+```
+## 线上更新
+```
+npm run compile 
+
+pm2 restart
+
 ```
