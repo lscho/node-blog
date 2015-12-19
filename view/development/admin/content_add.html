@@ -26,30 +26,31 @@
 			                 </div>
 							</div>
 						</div>
-						</div>
-						<div class="xm3">
+					</div>
+					<div class="xm3">
 							<label class="label"> url静态化</label> 
 							<input type="text" name="url" class="input"  value="<%=content.url%>" placeholder="不能为数字" />
 							<label class="label"> 所属分类</label> 
 							<select class="input"  name="category"> 
 		                     <%category.forEach(function(data){%>
-		                      <option value="<%=data.id%>" <%if(content.cid==data.id){%>selected<%}%>><%=data.name%></option> 
+		                      <option value="<%=data.id%>" selected="<%if(content.cid==data.id){%>selected<%}%>" ><%=data.name%></option> 
 		                      <%})%>
 							</select>
 							<label class="label"> 文章标签</label>
 							<select class="input"  name="tag"> 
 		                     <%tag.forEach(function(data){%>
-		                      <option value="<%=data.id%>" <%if(content.tid==data.id){%>selected<%}%>><%=data.name%></option> 
+		                      <option value="<%=data.id%>" selected="<%if(content.tid==data.id){%>selected<%}%>" ><%=data.name%>
+		                      </option> 
 		                      <%})%>	
 		                      </select> 
 	                  		<div class="label"><label>文章状态</label></div>
 	                        <div class="button-group button-group-small radio">
 	                            <label class="button <%if(content.status==1){%>active<%}%>">
-	                            <input name="status" value="1"<%if(content.status==1){%> checked="checked"<%}%> type="radio" />
+	                            <input name="status" value="1" checked="<%if(content.status==1){%>checked<%}%>" type="radio" />
 	                            <span class="icon icon-check"></span> 
 	                              开启</label>
 	                            <label class="button <%if(content.status==0){%>active<%}%>">
-	                            <input name="status" value="0"<%if(content.status==0){%> checked="checked"<%}%> type="radio" />
+	                            <input name="status" value="0" checked="<%if(content.status==0){%>checked<%}%>" type="radio" />
 	                            <span class="icon icon-times"></span> 
 	                            关闭</label>
 	                        </div>
@@ -57,26 +58,26 @@
 	                  		<div class="label"><label>允许评论</label></div>
 	                        <div class="button-group button-group-small radio">
 	                            <label class="button <%if(content.iscomment==1){%>active<%}%>">
-	                            <input name="iscomment" value="1"<%if(content.iscomment==1){%> checked="checked"<%}%> type="radio" />
+	                            <input name="iscomment" value="1" checked="<%if(content.iscomment==1){%>checked<%}%>" type="radio" />
 	                            <span class="icon icon-check"></span> 开启</label>
 	                            <label class="button <%if(content.iscomment==0){%>active<%}%>">
-	                            <input name="iscomment" value="0"<%if(content.iscomment==0){%> checked="checked"<%}%> type="radio"  />
+	                            <input name="iscomment" value="0" checked="<%if(content.iscomment==0){%>checked<%}%>" type="radio"  />
 	                            <span class="icon icon-times"></span> 关闭</label>
 	                        </div>                      
 
 	                  		<div class="label"><label>文章类型</label></div>
 	                        <div class="button-group button-group-small radio">
 	                            <label class="button <%if(content.ispage==1){%>active<%}%>">
-	                            <input name="ispage" value="1"<%if(content.ispage==1){%> checked="checked"<%}%> type="radio" />
+	                            <input name="ispage" value="1" checked="<%if(content.ispage==1){%>checked<%}%>" type="radio" />
 	                            <span class="icon icon-check"></span> 文章</label>
 	                            <label class="button <%if(content.ispage==2){%>active<%}%>">
-	                            <input name="ispage" value="2"<%if(content.ispage==2){%> checked="checked"<%}%> type="radio"  />
+	                            <input name="ispage" value="2" checked="<%if(content.ispage==2){%>checked<%}%>" type="radio"  />
 	                            <span class="icon icon-times"></span> 页面</label>
 	                        </div>
 							<div class="margin-large-top">
 								<button class="button border-main">立即提交</button>
-							</div>
-						</div>
+							</div>							
+					</div>
 					</form>		
 					</div>
 				</div>

@@ -14,7 +14,7 @@ export default class extends Base {
     async addAction() {
         if (this.isGet()) {
             //获取标签
-            let tag = this.model('tags').getList();
+            let tag =this.model('tags').getList();
             this.assign('tag', tag);
             //获取分类
             let category = this.model('categorys').getList();
