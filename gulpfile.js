@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');   
+    rename = require('gulp-rename'),
+    rev = require('gulp-rev-append');   
  
 //home模版压缩
 gulp.task('Htmlmin', function () {
