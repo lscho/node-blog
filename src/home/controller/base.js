@@ -30,7 +30,7 @@ export default class extends think.controller.base {
     let date = Date();
     let http = this.http;
     let userAgent = this.userAgent();
-    //不记录蜘蛛
+    //过滤蜘蛛
     let is_spider = false;
     let spider = ['Googlebot', 'Baiduspider', 'Yahoo! Slurp', 'msnbot', 'Sosospider', 'YodaoBot', 'Sogou web spider',
       'fast-webcrawler', 'Gaisbot', 'ia_archiver', 'altavista', 'lycos_spider', 'Inktomi slurp'

@@ -209,6 +209,9 @@ blockquote.border-dot strong,
 .input:focus{
 	border-color: #8F8F8F;
 }
+.pagination.border-main li{
+	margin: 2px;
+}
 /*边框-主色*/
 
 .border-sub,

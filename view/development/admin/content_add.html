@@ -33,14 +33,21 @@
 							<label class="label"> 所属分类</label> 
 							<select class="input"  name="category"> 
 		                     <%category.forEach(function(data){%>
-		                      <option value="<%=data.id%>" selected="<%if(content.cid==data.id){%>selected<%}%>" ><%=data.name%></option> 
+		                     	<%if(content.cid==data.id){%>
+		                      	<option value="<%=data.id%>" selected><%=data.name%></option> 
+		                      	<%}else{%>
+								<option value="<%=data.id%>"><%=data.name%></option> 
+		                      	<%}%>
 		                      <%})%>
 							</select>
 							<label class="label"> 文章标签</label>
 							<select class="input"  name="tag"> 
 		                     <%tag.forEach(function(data){%>
-		                      <option value="<%=data.id%>" selected="<%if(content.tid==data.id){%>selected<%}%>" ><%=data.name%>
-		                      </option> 
+		                     	<%if(content.tid==data.id){%>
+		                      	<option value="<%=data.id%>" selected><%=data.name%></option> 
+		                      	<%}else{%>
+								<option value="<%=data.id%>"><%=data.name%></option> 
+		                      	<%}%> 
 		                      <%})%>	
 		                      </select> 
 	                  		<div class="label"><label>文章状态</label></div>
