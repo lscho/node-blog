@@ -2750,10 +2750,10 @@ $.extend($E.fn, {
             //['removeFormat'],
             ['blockquote', 'fontFamily', 'fontSize', 'setHead', 'list', 'justify'],
             //['indent', 'outdent'],
-            //['insertHr'],
+            ['insertHr'],
             ['createLink', 'unLink', 'insertTable', 'insertExpression'],
-            ['insertImage', 'insertVideo','insertCode'],
-            ['undo', 'redo', 'fullScreen']
+            ['insertImage', 'insertVideo','insertCode','removeFormat'],
+            //['undo', 'redo', 'fullScreen']
         ];
 	}
 });

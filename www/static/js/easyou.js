@@ -1869,29 +1869,7 @@ function ready(){
 	        }
 	    }
 	})();
-	Main.init(); 
-	//多说
-	if($(".ds-thread").attr("data-thread-key")){
-              //异步加载多说js
-              var duoshuoQuery = {short_name:"eyblog"};
-              $.getScript("http://static.duoshuo.com/embed.js",function(){
-                //代码高亮
-                $('pre code').each(function(i, block) {
-                      hljs.highlightBlock(block);
-                }); 
-                //创建dom
-                var dus=$(".ds-thread");
-                var dr=$("#ds-thread");
-                if($(dus).length==1 && $(dr).length==0){
-                    var el = document.createElement('div');
-                    el.setAttribute('data-thread-key',$(dus).attr("data-thread-key"));//必选参数
-                    el.setAttribute('data-url',$(dus).attr("data-url"));
-                    DUOSHUO.EmbedThread(el);
-                    //alert(el);
-                    $(dus).html(el);                  
-                }  
-            });		
-    }
+	Main.init();
 }
 $(function(){
 	ready();
@@ -1907,23 +1885,3 @@ $(document).on('pjax:complete', function () {
 	//重载js
     ready();
 });
-function getDs(){
-              //异步加载多说js
-              var duoshuoQuery = {short_name:"eyblog"};
-              $.getScript("http://static.duoshuo.com/embed.js",function(){
-                //代码高亮
-                $('pre code').each(function(i, block) {
-                      hljs.highlightBlock(block);
-                }); 
-                //创建dom
-                var dus=$(".ds-thread");
-                var dr=$("#ds-thread");
-                if($(dus).length==1 && $(dr).length==0){
-                    var el = document.createElement('div');
-                    el.setAttribute('data-thread-key',$(dus).attr("data-thread-key"));//必选参数
-                    el.setAttribute('data-url',$(dus).attr("data-url"));
-                    DUOSHUO.EmbedThread(el);
-                    $(dus).html(el);
-                }
-              })	
-}
