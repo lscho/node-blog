@@ -9,7 +9,7 @@ export default {
   port: '3306',
   name: 'ey',
   user: 'root',
-  pwd: '',
+  pwd: '123456',
   prefix: 'ey_',
   encoding: 'utf8',
   nums_per_page: 10,

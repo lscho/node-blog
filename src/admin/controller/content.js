@@ -36,7 +36,13 @@ export default class extends Base {
             data.title = this.post('title');
             data.cid = this.post('category');
             data.tid = this.post('tag');
-            data.text = this.post('content');
+            if(this.post('editor')=='markdown'){
+                let markdown = require( "markdown" ).markdown;
+                data.text = markdown.toHTML(this.post('markdown'));
+            }else{
+                data.text=this.post('content');
+            }
+            data.markdown=this.post('markdown');
             data.abscontent = subStr(removeTag(this.post('content')), 400);
             data.status = this.post('status') || 0;
             data.ispage = this.post('ispage') || 1;

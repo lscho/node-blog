@@ -8,12 +8,12 @@
 ## 获取 
 
 ```
-git clone https://github.com/eyblog/easyou-v2.git
+git clone https://github.com/eyblog/blog.git
 ```
 
 ## 配置  
 
-数据库：[./src/common/config/db.js](https://github.com/eyblog/easyou-v2/blob/master/src/common/config/db.js)
+数据库：[./src/common/config/db.js](https://github.com/eyblog/blog/blob/master/src/common/config/db.js)
 
 ## 启动 
 
@@ -22,21 +22,22 @@ npm install
 npm start
 ```
 
-## 部署 
-
-配置：[./pm2.json](https://github.com/eyblog/easyou-v2/blob/master/pm2.json) 
-
+##编译
 
 ```
 gulp 
 
-pm2 startOrGracefulReload pm2.json 
-
-```
-## 线上更新
-```
 npm run compile 
+```
 
-pm2 restart
+## 部署 
+
+线上部署只依赖babel-runtime模块，部署时只需要把编译后的app文件夹上传即可
+
+配置：[./pm2.json](https://github.com/eyblog/blog/blob/master/pm2.json)将部署方式修改为production模式
+
+```
+
+pm2 startOrGracefulReload pm2.json 
 
 ```

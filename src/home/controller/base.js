@@ -32,9 +32,8 @@ export default class extends think.controller.base {
     let userAgent = this.userAgent();
     //过滤蜘蛛
     let is_spider = false;
-    let spider = ['Googlebot', 'Baiduspider', 'Yahoo! Slurp', 'msnbot', 'Sosospider', 'YodaoBot', 'Sogou web spider',
-      'fast-webcrawler', 'Gaisbot', 'ia_archiver', 'altavista', 'lycos_spider', 'Inktomi slurp'
-    ];
+    let spider = ['Googlebot', 'Yahoo! Slurp', 'msnbot', 'YodaoBot','fast-webcrawler', 'Gaisbot', 
+    'ia_archiver', 'altavista', 'Inktomi slurp','Spider','spider','bingbot/2.0','MJ12bot/v1.4.5'];
     for (let i in spider) {
       if (userAgent.indexOf(spider[i]) > 0) {
         is_spider = true;
