@@ -26,6 +26,7 @@ export default class extends Base {
     }
     //markdown编辑器上传
     async markdownAction() {
+        var self=this;
         //获取上传信息
         let file = this.file("editormd-image-file");
         //引入fs处理文件 
@@ -42,8 +43,21 @@ export default class extends Base {
         let basename=think.md5(filename)+path.extname(file.path);//path.extname获取文件后缀名，可做控制
         //移动文件
         fs.renameSync(file.path, uploadPath + '/' + basename);
-        //输出文件路径
-        let data={success:1,message:"上传成功",url:'/static/upload/' + basename};
-        this.end(data);
-    }    
+        //七牛上传
+        var qiniu = require("qiniu");
+        qiniu.conf.ACCESS_KEY = 'oFagANnuJYKz40JoYkwHSrUJL9EgijnhM5ci8VFr';
+        qiniu.conf.SECRET_KEY = '2vibnAoravsf56MMVCIT435nLIKZ7rfxzA7lGQA_';
+        var bucket = 'hersface';
+        var putPolicy = new qiniu.rs.PutPolicy(bucket+":"+basename);
+        var token = putPolicy.token();
+        var extra = new qiniu.io.PutExtra();
+        var files='/static/upload/' + basename;
+        qiniu.io.putFile(token, basename, think.RESOURCE_PATH+files, extra, function(err, ret) {
+            if(!err) {
+                self.end({success:1,message:"上传成功",url:'http://7xs3vt.com1.z0.glb.clouddn.com/' + ret.key});                 
+            } else {
+                self.end({success:1,message:"上传成功",url:files});
+            }
+        });
+    }
 }

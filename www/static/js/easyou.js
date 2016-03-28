@@ -1326,38 +1326,7 @@ $.support.pjax ? enable() : disable()
 
 /*=============================================================*/  
 
-function ready(){	
-	$(".win-homepage").click(function(){ 
-        if(document.all){
-        document.body.style.behavior = 'url(#default#homepage)'; 
-        document.body.setHomePage(document.URL); 
-        }else{alert("设置首页失败，请手动设置！");} 
-	});
-	$(".win-favorite").click(function(){
-		var sURL=document.URL; 
-		var sTitle=document.title; 
-		try {window.external.addFavorite(sURL, sTitle);} 
-		catch(e){ 
-			try{window.sidebar.addPanel(sTitle, sURL, "");} 
-			catch(e){alert("加入收藏失败，请使用Ctrl+D进行添加");} 
-		}
-	});
-	$(".win-forward").click(function(){
-		window.history.forward(1);
-	});
-	$(".win-back").click(function(){
-		window.history.back(-1);
-	});
-	$(".win-backtop").click(function(){$('body,html').animate({scrollTop:0},1000);return false;});
-	$(".win-refresh").click(function(){
-		window.location.reload();
-	});
-	$(".win-print").click(function(){
-		window.print();
-	});
-	$(".win-close").click(function(){
-		window.close();
-	});
+function ready(){
 	$('.checkall').click(function(){
 		var e=$(this);
 		var name=e.attr("name");
