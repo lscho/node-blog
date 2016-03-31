@@ -1,1 +1,85 @@
-<div class="layout bg-main bg-inverse fixed" style="z-index:9"><div class="container-layout"><div class="navbar"><div class="navbar-head"><button class="button icon-navicon" data-target="#navbar1"></button> <a href="/admin"><strong class="text-big">博客管理后台</strong></a></div><div class="navbar-body nav-navicon" id="navbar1"><ul class="nav nav-inline nav-menu"><li><a class="icon-cog" href="/admin/system">&nbsp;系统<span class="arrow"></span></a><ul class="drop-menu"><li><a class="icon-cogs" href="/admin/system">&nbsp;系统设置</a></li><li><a class="icon-user" href="/admin/system/count">&nbsp;访客记录</a></li></ul></li><li><a class="icon-file-text" href="/admin/content">&nbsp;内容<span class="arrow"></span></a><ul class="drop-menu"><li><a class="icon-smile-o" href="/admin/content/mood">&nbsp;心情</a></li><li><a class="icon-file-code-o" href="/admin/content">&nbsp;文章<span class="arrow"></span></a><ul><li><a href="/admin/content/add">&nbsp;撰写</a></li><li><a href="/admin/content">&nbsp;管理</a></li></ul></li><li><a class="icon-navicon" href="/admin/content/cate">&nbsp;分类</a></li><li><a class="icon-tags" href="/admin/content/tag">&nbsp;标签</a></li></ul></li></ul><div class="navbar-form navbar-left"><form><input type="text" class="input input-auto" name="keywords" size="15" placeholder="文章搜索"> <button class="button bg"><span class="icon-search"></span>&nbsp;搜索</button></form></div><ul class="nav nav-inline nav-menu navbar-right"><li><a class="bg-main" href="javascript:;"><%=userInfo.user%><span class="downward"></span></a><ul class="drop-menu"><li><a class="icon-key" target="_blank" href="/admin/system/change">&nbsp;修改密码</a></li><li><a class="icon-sign-out" href="/admin/index/loginout">&nbsp;退出登录</a></li></ul></li><li><a target="_blank" href="/"><span class="icon-home"></span>&nbsp;返回首页</a></li></ul></div></div></div></div>
+<div class="layout bg-main bg-inverse fixed" style="z-index:9">
+	<div class="container-layout">
+		<div class="navbar">
+			<div class="navbar-head">
+				<button class="button icon-navicon" data-target="#navbar1"></button>
+				<a href="/admin"> <strong class="text-big">博客管理后台</strong>
+				</a>
+			</div>
+			<div class="navbar-body nav-navicon" id="navbar1">
+				<ul class="nav nav-inline nav-menu">
+					<li>
+						<a class="icon-cog" href="/admin/system">&nbsp;系统
+							<span class="arrow"></span>
+						</a>
+						<ul class="drop-menu">
+							<li>
+								<a class="icon-cogs" href="/admin/system">&nbsp;系统设置</a>
+							</li>
+							<li>
+								<a class="icon-user" href="/admin/system/count">&nbsp;访客记录</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a class="icon-file-text" href="/admin/content">&nbsp;内容
+							<span class="arrow"></span>
+						</a>
+						<ul class="drop-menu">
+							<li>
+								<a class="icon-smile-o" href="/admin/content/mood">&nbsp;心情</a>
+							</li>
+							<li>
+								<a class="icon-file-code-o" href="/admin/content">&nbsp;文章
+									<span class="arrow"></span>
+								</a>
+								<ul>
+									<li>
+										<a href="/admin/content/add">&nbsp;撰写</a>
+									</li>
+									<li>
+										<a href="/admin/content">&nbsp;管理</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a class="icon-navicon" href="/admin/content/cate">&nbsp;分类</a>
+							</li>
+							<li>
+								<a class="icon-tags" href="/admin/content/tag">&nbsp;标签</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="navbar-form navbar-left">
+					<form action="/admin/content">
+						<input type="text" class="input input-auto" name="keywords" size="15" placeholder="文章搜索">&nbsp;<button class="button bg">
+							<span class="icon-search"></span>&nbsp;搜索
+						</button>
+					</form>
+				</div>
+				<ul class="nav nav-inline nav-menu navbar-right">
+					<li>
+						<a class="bg-main" href="javascript:;"><%=userInfo.user%>
+							<span class="downward"></span>
+						</a>
+						<ul class="drop-menu">
+							<li>
+								<a class="icon-key" href="/admin/system/change">&nbsp;修改密码</a>
+							</li>
+							<li>
+								<a class="icon-sign-out" href="/admin/index/loginout">&nbsp;退出登录</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a target="_blank" href="/">
+							<span class="icon-home"></span>
+							&nbsp;返回首页
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

@@ -6,7 +6,11 @@ export default class extends Base {
     //首页
     async indexAction() {
             let page = this.get('p') ? this.get('p') : 1;
-            let data = await this.model('contents').getList({}, page, 10);
+            let map={};
+            if(this.get('keywords')){
+                map['ey_contents.title']=["like", '%'+this.get('keywords')+'%'];
+            }
+            let data = await this.model('contents').getList(map, page, 10);
             this.assign('list', data);
             this.display();
         }

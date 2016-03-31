@@ -11,9 +11,9 @@
 					<a href="<%=_web.url%>page/<%=data.id%>.html" class="article-date">
 						<time datetime="2015-10-19T15:57:00.000Z" itemprop="datePublished">
 							<span class="hidden-l">
-								<%=data.d%>
+								<%=data.m%>
 								<br>
-								<%=data.m%></span>
+								<%=data.d%></span>
 							<span class="hidden-b">
 								<%=data.m%>
 								-
@@ -36,7 +36,6 @@
 					</header>
 					<div class="article-entry" itemprop="articleBody">
 						<%-data.text%></div>
-					<footer class="article-footer"></footer>
 				</div>
 			</article>
 			<%if(data.iscomment=="1"){%>

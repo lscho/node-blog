@@ -6998,7 +6998,8 @@ a {
 	-webkit-transition:color .3s;
 	-moz-transition:color .3s;
 	-ms-transition:color .3s;
-	transition:color .3s
+	transition:color .3s;
+	margin: 0px 5px 0px 5px;
 }
 #article-nav .article-nav-link-wrap strong {
 	background:#ddd;
@@ -7023,6 +7024,15 @@ a {
 #article-nav #article-nav-older {
 	float:right;
 	padding-right:98px
+}
+article .article-tips {
+	margin-top:20px; 
+    background-color: #f0f8f4;
+    border: 1px solid #e2e2e2;
+    border-left: 5px solid #7cc4a0;
+    font-size: 15px;
+    position: relative;
+    text-indent: 20px;
 }
 .archives-wrap {
 	position:relative;
@@ -7835,4 +7845,8 @@ a.cd-read-more:hover{text-decoration:none; background-color: #424242;  }
 }
 img {
   max-width: 100%;
-}	
+}
+.emoji{
+    width: 24px;
+    height: 24px;
+}

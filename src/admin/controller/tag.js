@@ -17,6 +17,9 @@ export default class extends Base {
                 //更新
                 var rs=await this.model('tags').where({id:this.post('id')}).update(data);
             }
+            //更新缓存
+            let tag=await this.model('tags').getList();
+            this.cache("tags",tag);
             if(rs){
                 this.redirect("/admin/content/tag?err=1");
             }else{

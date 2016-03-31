@@ -18,6 +18,8 @@ export default class extends Base {
                     copyright: trimStr(this.post('copyright')),
                     linkurl: trimStr(this.post('linkurl'))
                 }
+                //更新缓存
+                this.cache("config",data);
                 let rs = await writeFile(think.ROOT_PATH + "/src/common/config/config.json", JSON.stringify(data));
                 if (rs) { //成功
                     return this.redirect("/admin/system");

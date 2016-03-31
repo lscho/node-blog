@@ -13,11 +13,13 @@ export default class extends think.model.base {
                 .order("ey_contents.id desc")
                 .countSelect();
          //数据处理
+        var month=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
         for (let k in data['data']) {
 	        /*
 	        *注1：纯粹是为了模版显示
-	        */        	
-            data['data'][k]['m'] = formatDate("m", data['data'][k]['time']);
+	        */
+            let d=new Date(parseInt(data['data'][k]['time'])*1000);
+            data['data'][k]['m'] = month[d.getUTCMonth()];
             data['data'][k]['d'] = formatDate("d", data['data'][k]['time']);
             data['data'][k]['time'] = formatDate("y-m-d h:i:s", data['data'][k]['time']);
         }             		
@@ -29,8 +31,10 @@ export default class extends think.model.base {
                 .field("ey_contents.*,ey_tags.name as tag")
                 .find();
         //注1
-        data['d'] = formatDate("d", data['time']);
-        data['m'] = formatDate("m", data['time']);  
+        let d=new Date(parseInt(data['time'])*1000);
+        let month=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];       
+        data['m'] = month[d.getUTCMonth()];
+        data['d'] = formatDate("d", data['time']);  
         return data;      
 	}
 }

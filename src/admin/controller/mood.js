@@ -15,9 +15,14 @@ export default class extends Base {
             if(think.isEmpty(this.post('id')) || this.post('id')=="0"){
                 //新增
                 var rs=await this.model('moods').add(data);
+                //设置缓存
+                this.cache("moods",data);
             }else{
                 //更新
                 var rs=await this.model('moods').where({id:this.post('id')}).update(data);
+                //设置缓存
+                let newmood=await this.model('moods').getNew();
+                this.cache("moods",newmood);
             }
             if(rs){
                 this.redirect("/admin/content/mood?err=1");
