@@ -7129,6 +7129,11 @@ article .article-tips {
 	margin-right:10px;
 	font:14px FontAwesome
 }
+code{
+	margin:0;
+	overflow:auto;
+	background-color: #eaeaea;	
+}
 .article-entry .gist .gist-file,.article-entry code,.article-entry pre {
 	font-family:"Source Code Pro",Consolas,Monaco,Menlo,Consolas,monospace
 }
@@ -7159,7 +7164,7 @@ article .article-tips {
 	margin:0;
 	padding:15px 20px;
 	overflow:auto;
-	color:#000;
+	color:#FFF;
 	line-height:22.4px
 }
 .article-entry .gist .gist-file .gist-data .line-numbers,.article-entry .highlight .gutter pre {

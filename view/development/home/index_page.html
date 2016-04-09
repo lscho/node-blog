@@ -45,7 +45,7 @@
 			<%}%>
 			<%include footer.html%></div>
 		<%if(data.iscomment=="1"){%>
-		<script>var duoshuoQuery={short_name:"<%=_web['duoshuo']%>"};$.getScript("http://static.duoshuo.com/embed.js",function(){$("pre code").each(function(t,e){hljs.highlightBlock(e)});var t=$(".ds-thread"),e=$("#ds-thread");if(1==$(t).length&&0==$(e).length){var a=document.createElement("div");a.setAttribute("data-thread-key",$(t).attr("data-thread-key")),a.setAttribute("data-url",$(t).attr("data-url")),DUOSHUO.EmbedThread(a),$(t).html(a)}});</script>
+		<script>var duoshuoQuery={short_name:"<%=_web['duoshuo']%>"};$.getScript("http://static.duoshuo.com/embed.js",function(){$("pre code").each(function(t,e){hljs.highlightBlock(e)});var t=$(".ds-thread"),e=$("#ds-thread");if(1==$(t).length&&0==$(e).length){var a=document.createElement("div");a.setAttribute("data-thread-key",$(t).attr("data-thread-key")),a.setAttribute("data-url",$(t).attr("data-url")),DUOSHUO.EmbedThread(a),$(t).html(a);}});</script>
 		<%}%></div>
 </body>
 </html>
