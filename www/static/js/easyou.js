@@ -1841,7 +1841,7 @@ function ready(){
 $(function(){
 	ready();
 });
-$(document).pjax('a', '#container', {fragment: '#container', timeout: 5000});
+$(document).pjax('a', '#content', {fragment: '#content', timeout: 5000});
 //pjax start
 $(document).on('pjax:send', function () {
 	NProgress.start();

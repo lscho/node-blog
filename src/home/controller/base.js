@@ -24,6 +24,9 @@ export default class extends think.controller.base {
       //访客统计[非pjax请求记录]
       if (!this.header('x-pjax')) {
         this.count();
+        this.assign('pjax',false);
+      }else{
+        this.assign('pjax',true);
       }
     }
     //获取配置
