@@ -12,6 +12,7 @@
     "babel": "5.8.21",
     "babel-runtime": "5.6.17",
     "gulp-rev-collector": "^1.0.2",
+    "qiniu": "^6.1.10",
     "thinkjs": "2.0.x"
   },
   "devDependencies": {

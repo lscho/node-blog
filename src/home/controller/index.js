@@ -90,8 +90,11 @@ export default class extends Base {
 				user: this.post('user'),
 				pass: this.post('pass')
 			};
+			if(!map.user||!map.pass){
+				this.end({status:-1,"msg":"帐号和密码不能为空"});
+			}
 			let data=await this.model('users').login(map);
-			if(data){
+			if(!think.isEmpty(data)){
 				//设置session
 				await this.session('userInfo',data);				
 				return this.redirect("/admin");

@@ -12,7 +12,10 @@ export default class extends think.controller.base {
       this.assign('title','后台管理');
       this.assign('userInfo',userInfo);
       //获取配置
-      await this.getConfig();
+      let config = await this.cache("config", () => {
+        return this.getConfig();
+      });
+      this.assign('_web',config);
     }else{
       return this.redirect("/login");
     }
@@ -21,6 +24,6 @@ export default class extends think.controller.base {
   async getConfig(){
       let data = readFile(think.ROOT_PATH + "/src/common/config/config.json");
       data = JSON.parse(data);
-      this.assign("_web", data);  	
+      return data;
   } 
 }

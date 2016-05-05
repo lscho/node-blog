@@ -15,6 +15,10 @@ export default class extends Base {
                     description: this.post("description"),
                     url: this.post("url"),
                     duoshuo:this.post("duoshuo"),
+                    bdpush:this.post('bdpush'),
+                    qnbucket:this.post('qnbucket'),
+                    qnaccess:this.post('qnaccess'),
+                    qnsecret:this.post('qnsecret'),
                     copyright: trimStr(this.post('copyright')),
                     linkurl: trimStr(this.post('linkurl'))
                 }

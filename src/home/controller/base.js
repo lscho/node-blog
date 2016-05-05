@@ -9,7 +9,7 @@ export default class extends think.controller.base {
       //获取配置
       let config = await this.cache("config", () => {
         return this.getConfig();
-      });      
+      });
       this.assign("_web", config);
       //最新心情
       let newmood = await this.cache("moods", () => {

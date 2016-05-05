@@ -6,9 +6,9 @@ export default class extends Base {
     //首页
     async indexAction() {
             let page = this.get('p') ? this.get('p') : 1;
-            let map={};
-            if(this.get('keywords')){
-                map['ey_contents.title']=["like", '%'+this.get('keywords')+'%'];
+            let map = {};
+            if (this.get('keywords')) {
+                map['ey_contents.title'] = ["like", '%' + this.get('keywords') + '%'];
             }
             let data = await this.model('contents').getList(map, page, 10);
             this.assign('list', data);
@@ -16,101 +16,113 @@ export default class extends Base {
         }
         //文章添加
     async addAction() {
-        if (this.isGet()) {
-            //获取标签
-            let tag =this.model('tags').getList();
-            this.assign('tag', tag);
-            //获取分类
-            let category = this.model('categorys').getList();
-            this.assign('category', category);
-            //编辑或者新增
-            if (this.get('id')) {
-                let content = await this.model('contents').getOne({
-                    'ey_contents.id': this.get('id')
-                });
-                this.assign('content', content);
+            if (this.isGet()) {
+                //获取标签
+                let tag = this.model('tags').getList();
+                this.assign('tag', tag);
+                //获取分类
+                let category = this.model('categorys').getList();
+                this.assign('category', category);
+                //编辑或者新增
+                if (this.get('id')) {
+                    let content = await this.model('contents').getOne({
+                        'ey_contents.id': this.get('id')
+                    });
+                    this.assign('content', content);
+                } else {
+                    this.assign('content', {});
+                }
+                //输出模版
+                this.display();
             } else {
-                this.assign('content', {});
-            }
-            //输出模版
-            this.display();
-        } else {
-            let userInfo=this.session('userInfo');
-            let data = {};
-            data.title = this.post('title');
-            data.cid = this.post('category');
-            data.tid = this.post('tag');
-            if(this.post('editor')=='markdown'){
-                let markdown = require( "markdown" ).markdown;
-                data.text = markdown.toHTML(this.post('markdown'));
-            }else{
-                data.text=this.post('content');
-            }
-            data.markdown=this.post('markdown');
-            data.abscontent = subStr(removeTag(this.post('content')), 400);
-            data.status = this.post('status') || 0;
-            data.ispage = this.post('ispage') || 1;
-            data.iscomment = this.post('iscomment') || 0;
-            data.url = this.post('url');
-            data.uid=userInfo.id;
-            if(this.post('id')){    //编辑
-                var rs=await this.model('contents').where({id:this.post('id')}).update(data);
-            }else{                  //新增
-                data.time=time();
-                var rs=await this.model('contents').add(data);
-            }
-            if(rs){
-                //操作成功
-                this.redirect("/admin/content?err=1");
-            }else{
-                //操作失败
-                this.redirect("/admin/content?err=2");
+                let userInfo = this.session('userInfo');
+                let data = {};
+                data.title = this.post('title');
+                data.cid = this.post('category');
+                data.tid = this.post('tag');
+                if (this.post('editor') == 'markdown') {
+                    let markdown = require("markdown").markdown;
+                    data.text = markdown.toHTML(this.post('markdown'));
+                } else {
+                    data.text = this.post('content');
+                }
+                data.markdown = this.post('markdown');
+                data.abscontent = subStr(removeTag(this.post('content')), 400);
+                data.status = this.post('status') || 0;
+                data.ispage = this.post('ispage') || 1;
+                data.iscomment = this.post('iscomment') || 0;
+                data.url = this.post('url');
+                data.uid = userInfo.id;
+                if (this.post('id')) { //编辑
+                    var rs = await this.model('contents').where({ id: this.post('id') }).update(data);
+                    await this.bdpush(data.url || this.post('id')); //推送文章
+                } else { //新增
+                    data.time = time();
+                    var rs = await this.model('contents').add(data);
+                    await this.bdpush(data.url || rs); //推送文章
+                }
+                if (rs) {
+                    //操作成功
+                    this.redirect("/admin/content?err=1");
+                } else {
+                    //操作失败
+                    this.redirect("/admin/content?err=2");
+                }
             }
         }
+        //删除
+    async deleteAction() {
+            let map = {};
+            if (this.isGet()) {
+                map.id = this.get('id');
+            } else {
+                let _post = think.require('querystring').parse(this.http.payload);
+                map.id = ['in', _post.id];
+            }
+            if (!think.isEmpty(map)) {
+                let rs = this.model('contents').where(map).delete();
+                if (rs) {
+                    this.redirect("/admin/content?err=1");
+                } else {
+                    this.redirect("/admin/content?err=2");
+                }
+            } else {
+                this.redirect("/admin/content?err=3");
+            }
+        }
+        //分类管理
+    async cateAction() {
+            if (this.isGet()) {
+                let category = await this.model('categorys').getList();
+                this.assign('category', category);
+                this.display();
+            }
+        }
+        //标签管理
+    async tagAction() {
+            if (this.isGet()) {
+                let tag = await this.model('tags').getList();
+                this.assign('tag', tag);
+                this.display();
+            }
+        }
+        //心情管理
+    async moodAction() {
+            if (this.isGet()) {
+                let page = this.get('p') || 1;
+                let mood = await this.model('moods').getList({}, page);
+                this.assign('list', mood);
+                this.display();
+            }
+        }
+        //百度推送
+    async bdpush(id) {
+        //获取配置
+        let config = await this.cache("config", () => {
+            return this.getConfig();
+        });
+        think.require('request').post(config.bdpush, {
+            form:'http://hersface.com/' + 'page/' + id + '.html'
+        });
     }
-    //删除
-    async deleteAction(){
-        let map={};
-        if(this.isGet()){
-            map.id=this.get('id');
-        }else{
-            let _post = think.require('querystring').parse(this.http.payload);
-            map.id=['in',_post.id];
-        }
-        if(!think.isEmpty(map)){
-            let rs=this.model('contents').where(map).delete();
-            if(rs){
-                this.redirect("/admin/content?err=1");
-            }else{
-                this.redirect("/admin/content?err=2");
-            }
-        }else{
-            this.redirect("/admin/content?err=3");
-        }
-    }
-    //分类管理
-    async cateAction(){
-        if(this.isGet()){
-            let category =await this.model('categorys').getList();
-            this.assign('category', category);
-            this.display();                        
-        }
-    }
-    //标签管理
-    async tagAction(){
-        if(this.isGet()){
-            let tag =await this.model('tags').getList();
-            this.assign('tag', tag);
-            this.display();                        
-        }
-    }
-    //心情管理
-    async moodAction(){
-        if(this.isGet()){
-            let page=this.get('p')||1;
-            let mood =await this.model('moods').getList({},page);
-            this.assign('list', mood);
-            this.display();                        
-        }
-    }    
 }

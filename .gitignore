@@ -1,4 +1,5 @@
 node_modules/
 app/
 www/static/upload/
+src/common/config/config.json
 gulpfile.js

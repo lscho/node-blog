@@ -1795,8 +1795,6 @@ function ready(){
 			};
 		});
 	});
-	//移除tip[pjax整合]
-	$(".tip").remove();
 	//菜单
 	var Main = (function() {
 

@@ -1,1 +1,69 @@
-<!DOCTYPE html><html lang="zh-cn"><% include head.html %><body><% include top.html %><div class="container"><ul class="bread"><li><a href="/admin" class="icon-home">首页</a></li><li><a href="/admin/system">系统</a></li></ul><div class="admin"><div class="line-big"><div class="xm12"><div class="panel admin-panel"><div class="panel-head"><strong>访客记录</strong></div><div class="padding border-bottom margin"><span><%=start%>到<%=end%></span> 共 <span class="tag bg-main"><%=list.count%>IP</span> <span class="tag bg-main"><%=list.pv%>PV</span></div><div class="panel-body"><table class="table table-hover"><tbody><tr><th width="120">时间</th><th width="50">IP</th><th width="50">次数</th><th width="100">页面</th><th width="10">来源</th><th width="100">操作</th></tr><% list.data.forEach(function(v) { %><tr><td><%=v.time%></td><td><span style="cursor:pointer" class="text-main tips" data-place="top" data-toggle="hover" title="<%=v.userAgent%>"><%=v.ip%></span></td><td><%=v.num%></td><td><%=v.url%></td><td><%=v.Referer%></td><td><a class="button border-yellow button-little dia" href="javascript:void(0)" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="30%" data-id="<%=v.id%>">禁止</a></td></tr><% }) %></tbody></table><div class="panel-foot text-center"><ul class="pagination border-main"><% if(list.totalPages>1){ for(var i=1;i<list.totalPages+1;i++){%><li class="<%if(list.currentPage==i){%>active<%}%>"><a href="/admin/system/count/p/<%=i%>"><%=i%></a></li><%}}%></ul></div></div></div></div></div></div></div><% include foot.html %></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<% include head.html %>
+
+    <body>
+        <% include top.html %>
+            <div class="container">
+                <ul class="bread">
+                    <li><a href="/admin" class="icon-home">首页</a></li>
+                    <li><a href="/admin/system">系统</a></li>
+                </ul>
+                <div class="admin">
+                    <div class="line-big">
+                        <div class="xm12">
+                            <div class="panel admin-panel">
+                                <div class="panel-head"><strong>访客记录</strong></div>
+                                <div class="padding border-bottom margin"><span><%=start%>到<%=end%></span>&nbsp;共&nbsp;<span class="tag bg-main"><%=list.count%>IP</span>&nbsp;<span class="tag bg-main"><%=list.pv%>PV</span></div>
+                                <div class="panel-body">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <th width="120">时间</th>
+                                                <th width="50">IP</th>
+                                                <th width="50">次数</th>
+                                                <th width="100">页面</th>
+                                                <th width="10">来源</th>
+                                                <th width="100">操作</th>
+                                            </tr>
+                                            <% list.data.forEach(function(v) { %>
+                                                <tr>
+                                                    <td>
+                                                        <%=v.time%>
+                                                    </td>
+                                                    <td><span style="cursor:pointer" class="text-main tips" data-place="top" data-toggle="hover" title="<%=v.userAgent%>"><%=v.ip%></span></td>
+                                                    <td>
+                                                        <%=v.num%>
+                                                    </td>
+                                                    <td>
+                                                        <%=v.url%>
+                                                    </td>
+                                                    <td>
+                                                        <%=v.Referer%>
+                                                    </td>
+                                                    <td><a class="button border-yellow button-little dia" href="javascript:void(0)" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="30%" data-id="<%=v.id%>">禁止</a></td>
+                                                </tr>
+                                                <% }) %>
+                                        </tbody>
+                                    </table>
+                                    <div class="panel-foot text-center">
+                                        <ul class="pagination border-main">
+                                            <% if(list.totalPages>1){ for(var i=1;i<list.totalPages+1;i++){%>
+                                                <li class="<%if(list.currentPage==i){%>active<%}%>">
+                                                    <a href="/admin/system/count/p/<%=i%>">
+                                                        <%=i%>
+                                                    </a>
+                                                </li>
+                                                <%}}%>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include foot.html %>
+    </body>
+
+</html>

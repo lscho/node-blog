@@ -1,1 +1,97 @@
-<!DOCTYPE html><html lang="zh-cn"><% include head.html %><body><% include top.html %><div class="container"><ul class="bread"><li><a href="/admin" class="icon-home">首页</a></li><li><a href="/admin/content">内容</a></li></ul><div class="admin"><div class="line-big"><div class="xm12"><form method="post" action="/admin/content/delete"><div class="panel admin-panel"><div class="panel-head"><strong>心情管理</strong></div><div class="padding border-bottom"><input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选"> <input type="button" class="button button-small border-green dialogs" value="添加心情" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="30%" data-id="0"></div><table class="table table-hover"><tbody><tr><th width="60">选择</th><th width="120">id</th><th width="120">用户</th><th width="*">内容</th><th width="180">时间</th><th width="100">操作</th></tr><% list.data.forEach(function(v) { %><tr><td><input type="checkbox" name="id" value="<%=v.id%>"></td><td><%=v.id%></td><td><%=v.user%></td><td><%=v.mood%></td><td><%=v.time%></td><td><a class="button border-blue button-little dia" href="javascript:void(0)" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="30%" data-id="<%=v.id%>">修改</a> <a class="button border-yellow button-little" href="/admin/mood/delete/id/<%=v.id%>" onclick="return confirm(&quot;确认删除?&quot;)?!0:!1">删除</a></td></tr><% }) %></tbody></table><div class="panel-foot text-center"><ul class="pagination border-main"><% if(list.totalPages>1){ for(var i=1;i<list.totalPages+1;i++){%><li class="<%if(list.currentPage==i){%>active<%}%>"><a href="/admin/content/mood/p/<%=i%>"><%=i%></a></li><%}}%></ul></div></div></form></div></div></div></div><% include foot.html %><div id="mydialog"><div class="dialog fadein-top"><form action="/admin/mood/add" method="post"><div class="dialog-head"><span class="close rotate-hover"></span> <strong>添加心情</strong></div><div class="dialog-body"><input type="hidden" class="input" name="id" id="moodId" value="0"> <input type="text" class="input mood" name="mood" placeholder="请输入心情内容"></div><div class="dialog-foot"><button class="button dialog-close">取消</button> <button class="button bg-green" type="submit">确认</button></div></form></div></div><script>$(".dia").on("click",function(){var o=$(this),d=o.data("id");$("#cateId").val(d),$.get("/admin/mood/get/id/"+d,function(d){$showdialogs(o),$(".mood").val(d.mood)})});</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<% include head.html %>
+
+    <body>
+        <% include top.html %>
+            <div class="container">
+                <ul class="bread">
+                    <li><a href="/admin" class="icon-home">首页</a></li>
+                    <li><a href="/admin/content">内容</a></li>
+                </ul>
+                <div class="admin">
+                    <div class="line-big">
+                        <div class="xm12">
+                            <form method="post" action="/admin/content/delete">
+                                <div class="panel admin-panel">
+                                    <div class="panel-head"><strong>心情管理</strong></div>
+                                    <div class="padding border-bottom">
+                                        <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选">&nbsp;<input type="button" class="button button-small border-green dialogs" value="添加心情" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="30%" data-id="0">
+                                    </div>
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <th width="60">选择</th>
+                                                <th width="120">id</th>
+                                                <th width="120">用户</th>
+                                                <th width="*">内容</th>
+                                                <th width="180">时间</th>
+                                                <th width="100">操作</th>
+                                            </tr>
+                                            <% list.data.forEach(function(v) { %>
+                                                <tr>
+                                                    <td>
+                                                        <input type="checkbox" name="id" value="<%=v.id%>">
+                                                    </td>
+                                                    <td>
+                                                        <%=v.id%>
+                                                    </td>
+                                                    <td>
+                                                        <%=v.user%>
+                                                    </td>
+                                                    <td>
+                                                        <%=v.mood%>
+                                                    </td>
+                                                    <td>
+                                                        <%=v.time%>
+                                                    </td>
+                                                    <td><a class="button border-blue button-little dia" href="javascript:void(0)" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="30%" data-id="<%=v.id%>">修改</a>&nbsp;<a class="button border-yellow button-little" href="/admin/mood/delete/id/<%=v.id%>" onclick="return confirm(&quot;确认删除?&quot;)?!0:!1">删除</a></td>
+                                                </tr>
+                                                <% }) %>
+                                        </tbody>
+                                    </table>
+                                    <div class="panel-foot text-center">
+                                        <ul class="pagination border-main">
+                                            <% if(list.totalPages>1){ for(var i=1;i<list.totalPages+1;i++){%>
+                                                <li class="<%if(list.currentPage==i){%>active<%}%>">
+                                                    <a href="/admin/content/mood/p/<%=i%>">
+                                                        <%=i%>
+                                                    </a>
+                                                </li>
+                                                <%}}%>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% include foot.html %>
+                <div id="mydialog">
+                    <div class="dialog fadein-top">
+                        <form action="/admin/mood/add" method="post">
+                            <div class="dialog-head"><span class="close rotate-hover"></span> <strong>添加心情</strong></div>
+                            <div class="dialog-body">
+                                <input type="hidden" class="input" name="id" id="moodId" value="0">
+                                <input type="text" class="input mood" name="mood" placeholder="请输入心情内容">
+                            </div>
+                            <div class="dialog-foot">
+                                <button class="button dialog-close">取消</button>
+                                <button class="button bg-green" type="submit">确认</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <script>
+                $(".dia").on("click", function() {
+                    var o = $(this),
+                        d = o.data("id");
+                    $("#cateId").val(d), $.get("/admin/mood/get/id/" + d, function(d) {
+                        $showdialogs(o), $(".mood").val(d.mood)
+                    })
+                });
+                </script>
+    </body>
+
+</html>
