@@ -122,7 +122,7 @@ export default class extends Base {
             return this.getConfig();
         });
         think.require('request').post(config.bdpush, {
-            form:'http://hersface.com/' + 'page/' + id + '.html'
+            form:config.url + 'page/' + id + '.html'
         });
     }
 }

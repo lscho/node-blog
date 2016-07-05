@@ -41,11 +41,11 @@ export default class extends Base {
             let pwd=think.md5(this.post('password')+'eyblog');
             if(pwd==userInfo.pass){
                 let user=this.post('user');
-                let pwd1=this.post('password1');
+                let pwd1=think.md5(this.post('password1')+'eyblog');
                 //修改密码
                 let rs=await this.model('users')
                         .where({id:userInfo.id})
-                        .update({pass:pwd,user:user});
+                        .update({pass:pwd1,user:user});
                 if(rs){
                     //修改成功
                     return this.redirect("/admin/system/change?err=1");
