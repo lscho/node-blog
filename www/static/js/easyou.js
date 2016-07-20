@@ -75,7 +75,7 @@ $(function(){
 	})();
 	Main.init();	
 	ready();
-	/*获取地理位置*/
+	/*获取地理位置
 	if(navigator.geolocation&&localStorage&&((new Date()).getTime()/1000-(localStorage.location||0))>864000){
 		navigator.geolocation.getCurrentPosition(function(position){
             $.post('index/location',{
@@ -94,6 +94,7 @@ $(function(){
 			maximumAge:1000
 		});
 	}
+	*/
 });
 $(document).pjax('a', '#content', {fragment: '#content', timeout: 5000});
 //pjax start

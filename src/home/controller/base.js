@@ -7,10 +7,10 @@ export default class extends think.controller.base {
     //前置操作
   async __before() {
       //获取配置
-      let config = await this.cache("config", () => {
-        return this.getConfig();
+      let config=await this.cache('config',()=>{
+        return this.model('web').getField('content');
       });
-      this.assign("_web", config);
+      this.assign('_web',JSON.parse(config));
       //最新心情
       let newmood = await this.cache("moods", () => {
         return this.model("moods").getNew();
@@ -28,12 +28,6 @@ export default class extends think.controller.base {
       }else{
         this.assign('pjax',true);
       }
-    }
-    //获取配置
-  async getConfig() {
-      let data = readFile(think.ROOT_PATH + "/src/common/config/config.json");
-      data = JSON.parse(data);
-      return data;
     }
     //访客统计
   async count() {

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 03 月 31 日 10:19
+-- 生成日期: 2016 年 07 月 20 日 17:52
 -- 服务器版本: 5.5.40
--- PHP 版本: 5.3.29
+-- PHP 版本: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,7 +31,16 @@ CREATE TABLE IF NOT EXISTS `ey_categorys` (
   `name` varchar(10) DEFAULT NULL,
   `tid` int(1) DEFAULT NULL COMMENT '1标签，2分类',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- 转存表中的数据 `ey_categorys`
+--
+
+INSERT INTO `ey_categorys` (`id`, `name`, `tid`) VALUES
+(3, '随笔', 1),
+(4, '网络123', 1),
+(5, '123', 1);
 
 -- --------------------------------------------------------
 
@@ -53,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `ey_comments` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1804 ;
 
+
 -- --------------------------------------------------------
 
 --
@@ -65,8 +75,8 @@ CREATE TABLE IF NOT EXISTS `ey_contents` (
   `url` varchar(20) DEFAULT NULL,
   `uid` int(3) DEFAULT '1',
   `abscontent` text,
-  `text` text,
-  `markdown` text,
+  `text` longtext,
+  `markdown` longtext,
   `time` int(15) DEFAULT NULL,
   `updatetime` int(15) DEFAULT NULL,
   `tid` int(3) DEFAULT NULL,
@@ -77,7 +87,8 @@ CREATE TABLE IF NOT EXISTS `ey_contents` (
   `view` int(5) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+
 
 -- --------------------------------------------------------
 
@@ -93,8 +104,12 @@ CREATE TABLE IF NOT EXISTS `ey_count` (
   `userAgent` varchar(200) DEFAULT NULL,
   `Referer` varchar(200) DEFAULT NULL,
   `num` int(11) NOT NULL DEFAULT '0',
+  `lng` varchar(15) DEFAULT NULL,
+  `lat` varchar(15) DEFAULT NULL,
+  `location` text,
+  `address` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=76 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=112 ;
 
 
 -- --------------------------------------------------------
@@ -109,7 +124,8 @@ CREATE TABLE IF NOT EXISTS `ey_moods` (
   `mood` varchar(200) NOT NULL,
   `time` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+
 
 -- --------------------------------------------------------
 
@@ -122,7 +138,14 @@ CREATE TABLE IF NOT EXISTS `ey_tags` (
   `name` varchar(10) NOT NULL,
   `tid` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- 转存表中的数据 `ey_tags`
+--
+
+INSERT INTO `ey_tags` (`id`, `name`, `tid`) VALUES
+(11, '123', 1);
 
 -- --------------------------------------------------------
 
@@ -142,7 +165,32 @@ CREATE TABLE IF NOT EXISTS `ey_users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 转存表中的数据 `ey_users`
+--
+
+INSERT INTO `ey_users` (`id`, `user`, `qq`, `weibo`, `email`, `brief`, `img`, `pass`) VALUES
+(1, 'admin', '123456', 'weibo.com', 'admin@eyblog', '这是简介a ', '/Public/img/logo.jpg', '8f9216fdfffc5728ec2332f3fd380312');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ey_web`
+--
+
+CREATE TABLE IF NOT EXISTS `ey_web` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `content` text CHARACTER SET utf8,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `ey_web`
+--
+
+INSERT INTO `ey_web` (`id`, `content`) VALUES
+(1, '{"title":"easyou","keyword":"","description":"","url":"http://127.0.0.1:8360/","duoshuo":"","bdpush":"","qnbucket":"","qnaccess":"","qnsecret":"","copyright":"","linkurl":""}');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-INSERT INTO `ey_users` VALUES ('1', 'admin', '5555555', 'weibo.com', 'admin@eyblog', '6的飞起', null, '8f9216fdfffc5728ec2332f3fd380312');

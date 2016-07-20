@@ -8,8 +8,7 @@ export default class extends Base {
             if (this.isGet()) {
                 this.display();
             } else {
-                let data = readFile(think.ROOT_PATH + "/src/common/config/config.json");
-                data = {
+                let data = {
                     title: this.post("title"),
                     keyword: this.post("keyword"),
                     description: this.post("description"),
@@ -21,10 +20,10 @@ export default class extends Base {
                     qnsecret:this.post('qnsecret'),
                     copyright: trimStr(this.post('copyright')),
                     linkurl: trimStr(this.post('linkurl'))
-                }
+                };
                 //更新缓存
-                this.cache("config",data);
-                let rs = await writeFile(think.ROOT_PATH + "/src/common/config/config.json", JSON.stringify(data));
+                this.cache("config",JSON.stringify(data));
+                let rs=await this.model('web').where({id:1}).update({content:JSON.stringify(data)});
                 if (rs) { //成功
                     return this.redirect("/admin/system");
                 } else { //失败

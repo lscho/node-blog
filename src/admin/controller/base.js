@@ -12,18 +12,12 @@ export default class extends think.controller.base {
       this.assign('title','后台管理');
       this.assign('userInfo',userInfo);
       //获取配置
-      let config = await this.cache("config", () => {
-        return this.getConfig();
+      let config=await this.cache('config',()=>{
+        return this.model('web').getField('content');
       });
-      this.assign('_web',config);
+      this.assign('_web',JSON.parse(config));
     }else{
       return this.redirect("/login");
     }
-  } 
-  //获取配置
-  async getConfig(){
-      let data = readFile(think.ROOT_PATH + "/src/common/config/config.json");
-      data = JSON.parse(data);
-      return data;
-  } 
+  }
 }
