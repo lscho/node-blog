@@ -1,6 +1,7 @@
 node_modules/
 app/
+conmon/config/dev/
 www/static/upload/
 view/production/
-src/common/config/config.json
 gulpfile.js
+runtime/

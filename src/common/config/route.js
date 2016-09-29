@@ -1,5 +1,4 @@
-//自定义路由规则
-module.exports = [
+export default [
     ["page/:id", "index/page"],
 	["p/:page", "index/index"],
 	["mood/:page", "mood/index"],
@@ -10,4 +9,4 @@ module.exports = [
 	["about", "index/page?id=2"],
 	["archives","index/archives"],
 	["error","index/error"]
-]
+];

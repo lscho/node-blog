@@ -49,21 +49,24 @@ export default class extends Base {
         let config = await this.cache("config", () => {
             return this.getConfig();
         });
+        config=JSON.parse(config);
+
         if(think.isEmpty(config.qnbucket)||think.isEmpty(config.qnaccess)||think.isEmpty(config.qnsecret)){
             self.end({success:1,message:"上传成功",url:files});//没有配置七牛信息则使用本地地址
-        }    
+        }   
         //七牛上传
         var qiniu = think.require("qiniu");
         qiniu.conf.ACCESS_KEY = config.qnaccess;
         qiniu.conf.SECRET_KEY = config.qnsecret;
-        var bucket = config.qnbucket;
-        var putPolicy = new qiniu.rs.PutPolicy(bucket+":"+basename);
+        var putPolicy = new qiniu.rs.PutPolicy(config.qnbucket+":"+basename);
+
         var token = putPolicy.token();
         var extra = new qiniu.io.PutExtra();
         qiniu.io.putFile(token, basename, think.RESOURCE_PATH+files, extra, function(err, ret) {
             if(!err) {
-                self.end({success:1,message:"上传成功",url:'http://7xs3vt.com1.z0.glb.clouddn.com/' + ret.key});                 
+                self.end({success:1,message:"上传成功",url:config.qnweb + ret.key});                 
             } else {
+                console.log(err);
                 self.end({success:1,message:"上传成功",url:files});//上传失败使用本地地址
             }
         });

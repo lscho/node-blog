@@ -1,21 +1,25 @@
 {
-  "name": "thinkjs-application",
-  "description": "application created by thinkjs",
-  "version": "1.0.0",
+  "name": "blog",
+  "description": "blog created by thinkjs",
+  "version": "2.0.0",
   "scripts": {
     "start": "node www/development.js",
-    "compile": "babel --loose all --optional runtime --stage 0 --modules common src/ --out-dir app/ --retain-lines",
+    "compile": "babel --presets es2015-loose,stage-1 --plugins transform-runtime src/ --out-dir app/ --source-maps",
     "watch-compile": "node -e \"console.log('<npm run watch-compile> no longer need, use <npm start> command direct.');console.log();\"",
     "watch": "npm run watch-compile"
   },
   "dependencies": {
-    "babel": "5.8.21",
-    "babel-runtime": "5.6.17",
-    "gulp-rev-collector": "^1.0.2",
+    "thinkjs": "2.2.x",
+    "babel-runtime": "6.x.x",
     "qiniu": "^6.1.10",
-    "thinkjs": "2.0.x"
+    "source-map-support": "^0.4.2"
   },
   "devDependencies": {
+    "babel-cli": "6.x.x",
+    "babel-preset-es2015-loose": "6.x.x",
+    "babel-preset-stage-1": "6.x.x",
+    "babel-plugin-transform-runtime": "6.x.x",
+    "babel-core": "6.x.x",  
     "gulp": "^3.9.1",
     "gulp-cdn-replace": "^0.2.0",
     "gulp-minify-css": "^1.2.4",

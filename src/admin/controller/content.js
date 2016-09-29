@@ -59,8 +59,8 @@ export default class extends Base {
                 } else { //新增
                     data.time = time();
                     var rs = await this.model('contents').add(data);
-                    await this.bdpush(data.url || rs); //推送文章
                 }
+                this.bdpush(data.url || rs); //推送文章
                 if (rs) {
                     //操作成功
                     this.redirect("/admin/content?err=1");
@@ -118,9 +118,10 @@ export default class extends Base {
         //百度推送
     async bdpush(id) {
         //获取配置
-        let config = await this.cache("config", () => {
-            return this.getConfig();
-        });
+          let config=await this.cache('config',()=>{
+            return this.model('web').getField('content');
+          });
+          config=JSON.parse(config);
         think.require('request').post(config.bdpush, {
             form:config.url + 'page/' + id + '.html'
         });

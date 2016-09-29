@@ -1,5 +1,5 @@
 
- [演示地址](http://www.eyblog.com)  
+ [演示地址](https://hersface.com)  
 
 ## 简介  
 
@@ -32,9 +32,11 @@ npm run compile
 
 ## 部署 
 
-线上部署只依赖babel-runtime模块，部署时只需要把编译后的app文件夹上传即可
+线上部署只需要把编译后的app文件夹上传即可
 
-配置：[./pm2.json](https://github.com/eyblog/blog/blob/master/pm2.json)将部署方式修改为production模式
+配置：[./pm2.json](https://github.com/eyblog/blog/blob/master/pm2.json)
+
+将部署方式修改为production模式
 
 ```
 

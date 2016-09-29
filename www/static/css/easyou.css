@@ -6752,7 +6752,7 @@ a {
 .article-entry pre {
 	margin-top:10px;
 	overflow-x:auto;
-	background:#322F28;
+	background:#FFF;
 	font-size:12px
 }
 .article-meta {
@@ -7026,6 +7026,9 @@ code{
 	margin:0;
 	overflow:auto;
 	background-color: #eaeaea;	
+	color: #c7254e;
+	padding: 2px 4px;
+	border-radius: 3px;
 }
 .article-entry .gist .gist-file,.article-entry code,.article-entry pre {
 	font-family:"Source Code Pro",Consolas,Monaco,Menlo,Consolas,monospace
@@ -7772,7 +7775,7 @@ img {
 
 .hljs {
   display: block;
-  background: white;
+  background: #f6f6f6;
   padding: 0.5em;
   color: #333333;
   overflow-x: auto;
@@ -7787,12 +7790,12 @@ img {
 .hljs-strong,
 .hljs-emphasis,
 .hljs-quote {
-  color: #df5000;
+  color: #b58900;
 }
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-type {
-  color: #a71d5d;
+  color: #859900;
 }
 .hljs-literal,
 .hljs-symbol,
@@ -7825,4 +7828,7 @@ img {
 }
 .hljs-link {
   text-decoration: underline;
+}
+.hljs-built_in{
+	color: #268bd2;
 }
